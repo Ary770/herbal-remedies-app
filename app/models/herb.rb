@@ -12,13 +12,6 @@ class Herb < ApplicationRecord
     self.create_herbs_from_hash(Scraper.herb_names_and_path_hash)
   end
 
-  def add_herb_attributes(herb_attributes_hash)
-    herb_attributes_hash.each do |key, value|
-      self.send(("#{key}="), value)
-    end
-    self.save
-  end
-
   def self.add_herb_attributes
     self.all.each do |herb|
       attributes_hash = Scraper.herb_attributes_hash("https://www.anniesremedy.com/" + herb.path)
@@ -33,4 +26,12 @@ class Herb < ApplicationRecord
   def self.search_by_properties(property)
     self.all.select { |herb| herb.properties && herb.properties.downcase.include?(property.downcase)}
   end
+
+  def add_herb_attributes(herb_attributes_hash)
+    herb_attributes_hash.each do |key, value|
+      self.send(("#{key}="), value)
+    end
+    self.save
+  end
+
 end
