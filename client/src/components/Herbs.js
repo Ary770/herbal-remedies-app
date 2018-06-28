@@ -8,7 +8,7 @@ const Herbs = (props) => {
   )
 
   return (
-    <div className="col-md-4">
+    <div className="col-sm-3">
       <ul className="nav nav-pills nav-stacked">
         {herbs}
       </ul>

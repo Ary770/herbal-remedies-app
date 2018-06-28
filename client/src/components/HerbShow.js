@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Panel } from 'react-bootstrap';
+import '../App.css';
 
 const HerbShow = ({ herb }) => {
-
   const panel = <Panel>
                   <Panel.Heading>
                     <Panel.Title componentClass="h1"><b>{herb.name}</b></Panel.Title>
@@ -21,8 +21,8 @@ const HerbShow = ({ herb }) => {
                 </Panel>
 
   return (
-    <div className="col-md-8" >
-      <div className="navbar-fixed-top">
+    <div className='col-md-8'>
+      <div className='Static'>
         {panel}
       </div>
     </div>
