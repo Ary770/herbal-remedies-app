@@ -1,16 +1,15 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 const Herbs = (props) => {
   const herbs = props.herbs.map(herb =>
-    <h4 key={herb.id}><li><a href='/'>{herb.name}</a></li></h4>
+    <h4 key={herb.id}><li role='presentation'><Link to={`/herbs/${herb.id}`}>{herb.name}</Link></li></h4>
   )
 
   return (
-    <div>
-      {herbs.length === 0 ? null : <h1>My herbs</h1>}
-      <ul>
+    <div className="col-md-4">
+      <ul className="nav nav-pills nav-stacked">
         {herbs}
       </ul>
     </div>

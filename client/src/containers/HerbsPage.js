@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import * as actions from '../actions/herbs';
 import { bindActionCreators } from 'redux';
 import Herbs from '../components/Herbs';
+import { Route, Switch } from 'react-router-dom';
+import HerbShow from '../components/HerbShow'
 
 class HerbsPage extends React.Component {
   componentDidMount() {
@@ -12,9 +14,15 @@ class HerbsPage extends React.Component {
   }
 
   render() {
+    const {match, herbs} = this.props;
+
     return (
-      <div>
-        {this.props.herbs.length === 0 ? null: <Herbs herbs={this.props.herbs}/>}
+      <div className='row'>
+        <h2>Healing Herbs</h2>
+        {herbs.length === 0 ? null: <Herbs herbs={herbs}/>}
+        <Switch>
+          <Route path={`${match.url}/:herbId`} component={HerbShow}/>
+        </Switch>
       </div>
     )
   }
