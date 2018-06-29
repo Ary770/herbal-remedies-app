@@ -6,8 +6,8 @@ const NavBar = () => {
     <nav className="page-header">
       <ul className="nav nav-pills">
         <li role="presentation" className="active"><NavLink to="/herbs">Healing Herbs</NavLink></li>
-        <li role="presentation"><NavLink to="/">Link</NavLink></li>
-        <li role="presentation"><NavLink to="/">Link</NavLink></li>
+        <li role="presentation"><NavLink to="/medicinal-uses">Medicinal Uses</NavLink></li>
+        <li role="presentation"><NavLink to="/properties">Properties</NavLink></li>
       </ul>
     </nav>
   );

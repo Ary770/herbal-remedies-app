@@ -3,9 +3,13 @@ import { Link } from 'react-router-dom';
 
 
 const Herbs = (props) => {
-  const herbs = props.herbs.map(herb =>
-    <h4 key={herb.id}><li role='presentation'><Link to={`/herbs/${herb.id}`}>{herb.name}</Link></li></h4>
-  )
+  let herbs = null;
+
+  if (props.herbs) {
+    herbs = props.herbs.map(herb =>
+      <h4 key={herb.id}><li role='presentation'><Link to={`/herbs/${herb.id}`}>{herb.name}</Link></li></h4>
+    )
+  }
 
   return (
     <div className="col-sm-3">
