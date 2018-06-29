@@ -2,9 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 // import * as actions from '../actions/herbs';
 // import { bindActionCreators } from 'redux';
+// import PanelWrapper from '../components/PanelWrapper';
 import Herbs from '../components/Herbs';
 import HerbShow from '../components/HerbShow';
-// import PanelWrapper from '../components/PanelWrapper';
 import { Route } from 'react-router-dom';
 
 class MedicinalUses extends React.Component {

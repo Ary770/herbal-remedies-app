@@ -8,9 +8,10 @@ const NavBar = () => {
         <li role="presentation" className="active"><NavLink to="/herbs">Healing Herbs</NavLink></li>
         <li role="presentation"><NavLink to="/medicinal-uses">Medicinal Uses</NavLink></li>
         <li role="presentation"><NavLink to="/properties">Properties</NavLink></li>
+        <p className="navbar-text navbar-right">Data From: <a href="https://www.anniesremedy.com" className="navbar-link">anniesremedy.com</a></p>
       </ul>
     </nav>
-  );
+  )
 };
 
 export default NavBar

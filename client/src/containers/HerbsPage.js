@@ -14,7 +14,7 @@ class HerbsPage extends React.Component {
         {herbs.length === 0 ? null: <Herbs url={match.url} herbs={herbs}/>}
 
         <Route path={`${match.url}/:herbId`} component={HerbShow}/>
-
+        
       </div>
     )
   }
