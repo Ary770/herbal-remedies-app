@@ -1,24 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Panel } from 'react-bootstrap';
+import PanelWrapper from './PanelWrapper';
 import '../App.css';
 
 const HerbShow = ({ herb }) => {
-  const panel = <Panel>
-                  <Panel.Heading>
-                    <Panel.Title componentClass="h1"><b>{herb.name}</b></Panel.Title>
-                  </Panel.Heading>
-                  <Panel.Body>
-                    <h3>Medicinal Uses:</h3>
-                    <p>{herb.medicinal_uses}</p>
-
-                    <h3>Properties:</h3>
-                    <p>{herb.properties}</p>
-
-                    <h3>Preparation:</h3>
-                    <p>{herb.preparation}</p>
-                  </Panel.Body>
-                </Panel>
+  const panel = <PanelWrapper key={herb.id} herb={herb}/>
 
   return (
     <div className='col-md-8'>

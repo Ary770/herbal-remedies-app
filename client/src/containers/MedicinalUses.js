@@ -2,7 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions/herbs';
 import { bindActionCreators } from 'redux';
-import Herbs from '../components/Herbs'
+import Herbs from '../components/Herbs';
+import HerbShow from '../components/HerbShow';
+import { Panel } from 'react-bootstrap';
+import PanelWrapper from '../components/PanelWrapper'
 
 class MedicinalUses extends React.Component {
   state = {
@@ -37,8 +40,14 @@ class MedicinalUses extends React.Component {
     const results = this.state.showHerbs;
     let herbs = null;
 
+    // if (results) {
+    //   herbs = <Herbs herbs={results}/>
+    // }
+
     if (results) {
-      herbs = <Herbs herbs={results}/>
+      herbs = results.map(herb =>
+        <PanelWrapper key={herb.id} herb={herb}/>
+      )
     }
 
     return (
@@ -62,6 +71,7 @@ class MedicinalUses extends React.Component {
               </button>
             </span>
           </div>
+          <br></br>
           {herbs}
         </div>
       </div>
