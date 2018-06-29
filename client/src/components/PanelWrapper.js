@@ -2,7 +2,7 @@ import React from 'react';
 import { Panel } from 'react-bootstrap';
 
 const PanelWrapper = ({herb}) =>
-  <Panel>
+  <Panel bsStyle="success">
     <Panel.Heading>
       <Panel.Title componentClass="h1"><b>{herb.name}</b></Panel.Title>
     </Panel.Heading>

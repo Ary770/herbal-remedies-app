@@ -1,22 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../actions/herbs';
-import { bindActionCreators } from 'redux';
-import Herbs from '../components/Herbs';
-import HerbShow from '../components/HerbShow';
-import { Panel } from 'react-bootstrap';
+// import * as actions from '../actions/herbs';
+// import { bindActionCreators } from 'redux';
+// import Herbs from '../components/Herbs';
+// import HerbShow from '../components/HerbShow';
 import PanelWrapper from '../components/PanelWrapper'
 
 class MedicinalUses extends React.Component {
   state = {
     text: '',
     showHerbs: null,
-  }
-
-  componentDidMount() {
-    if (this.props.herbs.length === 0) {
-      this.props.actions.fetchHerbs();
-    }
   }
 
   handleChange(event) {
@@ -53,7 +46,6 @@ class MedicinalUses extends React.Component {
     return (
       <div>
         <h1>Search by Medicinal Uses</h1>
-        {console.log(this.state)}
         {console.log('Herbs: ', this.props.herbs)}
         <div className="col-lg-6">
           <div className="input-group">
@@ -85,8 +77,8 @@ const mapStateToProps = state => {
   })
 }
 
-function mapDispatchToProps(dispatch) {
-  return {actions: bindActionCreators(actions, dispatch)}
-}
+// function mapDispatchToProps(dispatch) {
+//   return {actions: bindActionCreators(actions, dispatch)}
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MedicinalUses);
+export default connect(mapStateToProps)(MedicinalUses);

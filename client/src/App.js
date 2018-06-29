@@ -4,8 +4,16 @@ import Navbar from './components/Navbar';
 import {BrowserRouter as Router,Route} from 'react-router-dom';
 import MedicinalUses from './containers/MedicinalUses';
 import Properties from './containers/Properties';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as actions from './actions/herbs';
 
 class App extends Component {
+  componentDidMount() {
+    if (this.props.herbs.length === 0) {
+      this.props.actions.fetchHerbs();
+    }
+  }
 
   render() {
     return (
@@ -23,4 +31,14 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return ({
+    herbs: state.herbs.herbs
+  })
+}
+
+function mapDispatchToProps(dispatch) {
+  return {actions: bindActionCreators(actions, dispatch)}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

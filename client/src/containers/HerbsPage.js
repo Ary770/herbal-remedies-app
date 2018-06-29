@@ -1,18 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../actions/herbs';
-import { bindActionCreators } from 'redux';
 import Herbs from '../components/Herbs';
 import { Route, Switch } from 'react-router-dom';
 import HerbShow from '../components/HerbShow'
 
 class HerbsPage extends React.Component {
-  componentDidMount() {
-    if (this.props.herbs.length === 0) {
-      this.props.actions.fetchHerbs();
-    }
-  }
-
   render() {
     const {match, herbs} = this.props;
 
@@ -34,8 +26,4 @@ const mapStateToProps = state => {
   })
 }
 
-function mapDispatchToProps(dispatch) {
-  return {actions: bindActionCreators(actions, dispatch)}
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(HerbsPage);
+export default connect(mapStateToProps)(HerbsPage);
