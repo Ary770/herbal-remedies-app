@@ -7,7 +7,7 @@ const Herbs = (props) => {
 
   if (props.herbs) {
     herbs = props.herbs.map(herb =>
-      <h4 key={herb.id}><li role='presentation'><Link to={`/herbs/${herb.id}`}>{herb.name}</Link></li></h4>
+      <h4 key={herb.id}><li role='presentation'><Link to={`${props.url}/${herb.id}`}>{herb.name}</Link></li></h4>
     )
   }
 

@@ -18,5 +18,4 @@ const PanelWrapper = ({herb}) =>
     </Panel.Body>
   </Panel>
 
-
 export default PanelWrapper

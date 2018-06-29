@@ -2,9 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 // import * as actions from '../actions/herbs';
 // import { bindActionCreators } from 'redux';
-// import Herbs from '../components/Herbs';
-// import HerbShow from '../components/HerbShow';
-import PanelWrapper from '../components/PanelWrapper'
+import Herbs from '../components/Herbs';
+import HerbShow from '../components/HerbShow';
+// import PanelWrapper from '../components/PanelWrapper';
+import { Route } from 'react-router-dom';
 
 class MedicinalUses extends React.Component {
   state = {
@@ -17,15 +18,19 @@ class MedicinalUses extends React.Component {
   }
 
   handleClick = () => {
-    const medicinalUse = this.state.text.charAt(0).toUpperCase() + this.state.text.substr(1);
-    const herbs = this.props.herbs;
+    if (this.state.text !== "") {
+      const medicinalUse = this.state.text.charAt(0).toUpperCase() + this.state.text.substr(1);
+      const herbs = this.props.herbs;
 
-    const matchingHerbs = herbs.filter(herb => herb.medicinal_uses && herb.medicinal_uses.includes(medicinalUse));
+      const matchingHerbs = herbs.filter(herb => herb.medicinal_uses && herb.medicinal_uses.includes(medicinalUse));
 
-    if (matchingHerbs) {
-      this.setState({
-        showHerbs: matchingHerbs
-      })
+      if (matchingHerbs) {
+        this.setState({
+          showHerbs: matchingHerbs
+        })
+      }
+    } else {
+      this.setState({ showHerbs: null })
     }
   }
 
@@ -33,20 +38,18 @@ class MedicinalUses extends React.Component {
     const results = this.state.showHerbs;
     let herbs = null;
 
+    if (results) {
+      herbs = <Herbs url={this.props.match.url} herbs={results}/>
+    }
     // if (results) {
-    //   herbs = <Herbs herbs={results}/>
+    //   herbs = results.map(herb =>
+    //     <PanelWrapper key={herb.id} herb={herb}/>
+    //   )
     // }
 
-    if (results) {
-      herbs = results.map(herb =>
-        <PanelWrapper key={herb.id} herb={herb}/>
-      )
-    }
-
     return (
-      <div>
+      <div className="row">
         <h1>Search by Medicinal Uses</h1>
-        {console.log('Herbs: ', this.props.herbs)}
         <div className="col-lg-6">
           <div className="input-group">
             <input
@@ -65,6 +68,7 @@ class MedicinalUses extends React.Component {
           </div>
           <br></br>
           {herbs}
+          <Route path={`${this.props.match.url}/:herbId`} component={HerbShow}/>
         </div>
       </div>
     )

@@ -22,8 +22,8 @@ class App extends Component {
           <div>
             <Navbar />
             <Route path="/herbs" component={HerbsPage}/>
-            <Route exact path="/medicinal-uses" component={MedicinalUses}/>
-            <Route exact path="/properties" component={Properties}/>
+            <Route path="/medicinal-uses" component={MedicinalUses}/>
+            <Route path="/properties" component={Properties}/>
           </div>
         </Router>
       </div>

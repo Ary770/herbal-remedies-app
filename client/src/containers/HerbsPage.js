@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Herbs from '../components/Herbs';
-import { Route, Switch } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import HerbShow from '../components/HerbShow'
 
 class HerbsPage extends React.Component {
@@ -11,10 +11,10 @@ class HerbsPage extends React.Component {
     return (
       <div className='row'>
         <h2>Healing Herbs</h2>
-        {herbs.length === 0 ? null: <Herbs herbs={herbs}/>}
-        <Switch>
-          <Route path={`${match.url}/:herbId`} component={HerbShow}/>
-        </Switch>
+        {herbs.length === 0 ? null: <Herbs url={match.url} herbs={herbs}/>}
+
+        <Route path={`${match.url}/:herbId`} component={HerbShow}/>
+
       </div>
     )
   }
