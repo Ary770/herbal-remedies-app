@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// import PanelWrapper from '../components/PanelWrapper'
 import Herbs from '../components/Herbs';
 import HerbShow from '../components/HerbShow';
 import { Route } from 'react-router-dom';
@@ -11,26 +10,27 @@ class Properties extends React.Component {
     showHerbs: null,
   }
 
-  handleChange(event) {
-    this.setState({ text: event.target.value });
-  }
+  handleChange = (event) => {
+    const text = event.target.value
+    if (text !== "") {
 
-  handleClick = () => {
-    if (this.state.text !== "") {
-      const herbProp = this.state.text.charAt(0).toUpperCase() + this.state.text.substr(1);
+      const property = text.split(' ').map(
+        w => w.charAt(0).toUpperCase() + w.substr(1)
+      ).join(' ');
+
       const herbs = this.props.herbs;
 
-      const matchingProps = herbs.filter(herb =>
-        herb.properties && herb.properties.includes(herbProp)
+      const matchingHerbs = herbs.filter(
+        herb => herb.properties && herb.properties.includes(property.trim())
       );
 
-      if (matchingProps) {
+      if (matchingHerbs) {
         this.setState({
-          showHerbs: matchingProps
+          showHerbs: matchingHerbs
         })
       }
     } else {
-      this.setState({showHerbs: null})
+      this.setState({ showHerbs: null })
     }
   }
 
@@ -41,31 +41,17 @@ class Properties extends React.Component {
     if (results) {
       herbs = <Herbs url={this.props.match.url} herbs={results}/>
     }
-    // if (results) {
-    //   herbs = results.map(herb =>
-    //     <PanelWrapper key={herb.id} herb={herb}/>
-    //   )
-    // }
 
     return (
       <div className="row">
         <h1>Search by Properties</h1>
         <div className="col-lg-6">
-          <div className="input-group">
-            <input
-              type="text"
-              className="form-control"
-              onChange={(event) => this.handleChange(event)}
-              placeholder="Search for..."
-              />
-            <span className="input-group-btn">
-              <button
-                onClick={this.handleClick}
-                className="btn btn-default"
-                type="button">Search!
-              </button>
-            </span>
-          </div>
+          <input
+            type="text"
+            className="form-control"
+            onChange={(event) => this.handleChange(event)}
+            placeholder="Search for..."
+            />
           <br></br>
           {herbs}
           <Route path={`${this.props.match.url}/:herbId`} component={HerbShow}/>
@@ -80,9 +66,5 @@ const mapStateToProps = state => {
     herbs: state.herbs.herbs
   })
 }
-
-// function mapDispatchToProps(dispatch) {
-//   return {actions: bindActionCreators(actions, dispatch)}
-// }
 
 export default connect(mapStateToProps)(Properties);
