@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import PanelWrapper from './PanelWrapper';
+import PanelWrapper from '../components/PanelWrapper';
 import '../App.css';
 
 const HerbShow = ({ herb }) => {

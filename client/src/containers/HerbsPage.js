@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Herbs from '../components/Herbs';
 import { Route } from 'react-router-dom';
-import HerbShow from '../components/HerbShow'
+import HerbShow from './HerbShow';
 
 
 const HerbsPage = (props) => {
@@ -11,7 +11,7 @@ const HerbsPage = (props) => {
   return (
     <div className='row'>
       <h2>Herbal Remedies</h2>
-      
+
       {herbs.length === 0 ? null: <Herbs url={match.url} herbs={herbs}/>}
 
       <Route path={`${match.url}/:herbId`} component={HerbShow}/>

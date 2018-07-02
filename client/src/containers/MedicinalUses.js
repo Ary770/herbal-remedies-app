@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Herbs from '../components/Herbs';
-import HerbShow from '../components/HerbShow';
+import HerbShow from './HerbShow';
 import { Route } from 'react-router-dom';
 
 class MedicinalUses extends React.Component {
