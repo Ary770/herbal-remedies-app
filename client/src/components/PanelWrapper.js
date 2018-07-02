@@ -7,9 +7,12 @@ const PanelWrapper = ({herb}) =>
       <Panel.Title componentClass="h1"><b>{herb.name}</b></Panel.Title>
     </Panel.Heading>
     <Panel.Body>
-      <h3>Medicinal Uses</h3>
+      {herb.medicinal_uses ?
+        <h3>Medicinal Uses</h3> :
+        null
+      }
       <p>{herb.medicinal_uses}</p>
-
+      
       <h3>Properties:</h3>
       <p>{herb.properties}</p>
 

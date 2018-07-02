@@ -28,6 +28,14 @@ class App extends Component {
             <Route path="/properties" component={Properties}/>
           </div>
         </Router>
+        <hr></hr>
+        <footer>
+          <small className='text-muted'>
+            Currently v0.1.0 /
+            Made by: Ary Baldioceda /
+            <a href="https://github.com/Ary770/herbal-remedies-app"> GitHub</a>
+          </small>
+        </footer>
       </div>
     );
   }
