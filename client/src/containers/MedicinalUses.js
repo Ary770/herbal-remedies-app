@@ -29,6 +29,7 @@ class MedicinalUses extends React.Component {
       }
     } else {
       this.setState({ showHerbs: null })
+      this.props.history.replace('/medicinal-uses')
     }
   }
 

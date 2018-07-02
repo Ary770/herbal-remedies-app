@@ -12,14 +12,13 @@ class Properties extends React.Component {
 
   handleChange = (event) => {
     const text = event.target.value
-    if (text !== "") {
 
+    if (text !== "") {
       const property = text.split(' ').map(
         w => w.charAt(0).toUpperCase() + w.substr(1)
       ).join(' ');
 
       const herbs = this.props.herbs;
-
       const matchingHerbs = herbs.filter(
         herb => herb.properties && herb.properties.includes(property.trim())
       );
@@ -30,7 +29,8 @@ class Properties extends React.Component {
         })
       }
     } else {
-      this.setState({ showHerbs: null })
+      this.setState({ showHerbs: null });
+      this.props.history.replace('/properties')
     }
   }
 
