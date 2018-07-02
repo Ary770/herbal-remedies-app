@@ -4,20 +4,18 @@ import Herbs from '../components/Herbs';
 import { Route } from 'react-router-dom';
 import HerbShow from '../components/HerbShow'
 
-class HerbsPage extends React.Component {
-  render() {
-    const {match, herbs} = this.props;
 
-    return (
-      <div className='row'>
-        <h2>Healing Herbs</h2>
-        {herbs.length === 0 ? null: <Herbs url={match.url} herbs={herbs}/>}
+const HerbsPage = (props) => {
+  const {match, herbs} = props;
+  return (
+    <div className='row'>
+      <h2>Healing Herbs</h2>
+      {herbs.length === 0 ? null: <Herbs url={match.url} herbs={herbs}/>}
 
-        <Route path={`${match.url}/:herbId`} component={HerbShow}/>
-        
-      </div>
-    )
-  }
+      <Route path={`${match.url}/:herbId`} component={HerbShow}/>
+
+    </div>
+  )
 }
 
 const mapStateToProps = state => {
