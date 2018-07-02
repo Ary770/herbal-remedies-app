@@ -13,7 +13,7 @@ const PanelWrapper = ({herb}) =>
       <h3>Properties:</h3>
       <p>{herb.properties}</p>
 
-      <h3>Preparation:</h3>
+      <h3>Preparation & Dosage:</h3>
       <p>{herb.preparation}</p>
     </Panel.Body>
   </Panel>
