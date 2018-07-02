@@ -6,11 +6,10 @@ import { Route } from 'react-router-dom';
 
 class MedicinalUses extends React.Component {
   state = {
-    text: '',
     showHerbs: null,
   }
 
-  handleChange = (event) => {
+  handleSearch = (event) => {
     const text = event.target.value
     if (text !== "") {
 
@@ -18,9 +17,9 @@ class MedicinalUses extends React.Component {
         w => w.charAt(0).toUpperCase() + w.substr(1)
       ).join(' ');
 
-      const herbs = this.props.herbs;
-
-      const matchingHerbs = herbs.filter(herb => herb.medicinal_uses && herb.medicinal_uses.includes(medicinalUse.trim()));
+      const matchingHerbs = this.props.herbs.filter(herb =>
+        herb.medicinal_uses && herb.medicinal_uses.includes(medicinalUse.trim())
+      );
 
       if (matchingHerbs) {
         this.setState({
@@ -48,7 +47,7 @@ class MedicinalUses extends React.Component {
           <input
             type="text"
             className="form-control"
-            onChange={(event) => this.handleChange(event)}
+            onChange={(event) => this.handleSearch(event)}
             placeholder="Search for..."
             />
           <br></br>
@@ -66,4 +65,4 @@ const mapStateToProps = state => {
   })
 }
 
-export default connect(mapStateToProps)(MedicinalUses);
+export default connect(mapStateToProps)(MedicinalUses)

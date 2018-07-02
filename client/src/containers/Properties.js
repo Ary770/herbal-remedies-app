@@ -6,11 +6,10 @@ import { Route } from 'react-router-dom';
 
 class Properties extends React.Component {
   state = {
-    text: '',
     showHerbs: null,
   }
 
-  handleChange = (event) => {
+  handleSearch = (event) => {
     const text = event.target.value
 
     if (text !== "") {
@@ -18,9 +17,8 @@ class Properties extends React.Component {
         w => w.charAt(0).toUpperCase() + w.substr(1)
       ).join(' ');
 
-      const herbs = this.props.herbs;
-      const matchingHerbs = herbs.filter(
-        herb => herb.properties && herb.properties.includes(property.trim())
+      const matchingHerbs = this.props.herbs.filter(herb =>
+        herb.properties && herb.properties.includes(property.trim())
       );
 
       if (matchingHerbs) {
@@ -49,7 +47,7 @@ class Properties extends React.Component {
           <input
             type="text"
             className="form-control"
-            onChange={(event) => this.handleChange(event)}
+            onChange={(event) => this.handleSearch(event)}
             placeholder="Search for..."
             />
           <br></br>

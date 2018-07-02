@@ -7,9 +7,11 @@ import HerbShow from '../components/HerbShow'
 
 const HerbsPage = (props) => {
   const {match, herbs} = props;
+
   return (
     <div className='row'>
-      <h2>Healing Herbs</h2>
+      <h2>Herbal Remedies</h2>
+      
       {herbs.length === 0 ? null: <Herbs url={match.url} herbs={herbs}/>}
 
       <Route path={`${match.url}/:herbId`} component={HerbShow}/>
