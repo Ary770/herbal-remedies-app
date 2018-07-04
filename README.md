@@ -1,24 +1,14 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Interactive Herbal Remedies web application built using Ruby on Rails Backend and React Frontend.
 
-Things you may want to cover:
+You can search for herbs in the database that match specific medicinal uses like, headaches, colds, flu, anxiety, or by herbal properties like analgesic, antioxidant, stimulant, muscle relaxant, etc.
 
-* Ruby version
+You can also see a list of the Top 65 Most Commonly Used Herbs and dynamically look at each herb's medicinal use, properties, preparation, and dosage.
 
-* System dependencies
+To get it running locally, clone the repository. Run bundle install, rake db:migrate, rake db:seed and finally rake start to launch the application.
 
-* Configuration
+Video of running app:
+https://youtu.be/8o0prork-LM
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This project has been licensed under the MIT open source license.
