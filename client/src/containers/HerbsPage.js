@@ -26,7 +26,7 @@ const HerbsPage = (props) => {
           type="text"
           onChange={e => handleSearch(e)}
           className="form-control"
-          placeholder="Search by medicinal use, herbal properties or name:"
+          placeholder="Search by Medicinal Uses, Herbal Properties or Herb Name..."
           />
         <br/>
       { herbs.length === 0 ? null : <Herbs url={match.url} herbs={herbs}/> }

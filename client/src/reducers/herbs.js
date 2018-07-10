@@ -22,7 +22,7 @@ export default (state = {loading: false, herbs: [], target: [], error: null}, ac
       const matches = state.herbs.filter(herb =>
         herb.medicinal_uses && herb.medicinal_uses.includes(medicinalUse.trim())
       );
-
+    
       return Object.assign({}, state, {target: matches})
     case 'ERROR':
       return Object.assign({}, state, {error: action.error})

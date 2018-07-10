@@ -7,9 +7,6 @@ import { bindActionCreators } from 'redux';
 import * as actions from '../actions/herbs';
 
 class MedicinalUses extends React.Component {
-  state = {
-    showHerbs: null,
-  }
 
   handleSearch = (event) => {
     const input = event.target.value
@@ -21,7 +18,7 @@ class MedicinalUses extends React.Component {
   }
 
   render() {
-    const target = this.state.herbs;
+    const target = this.props.herbs;
     let herbsList = null;
 
     if (target) {
@@ -30,7 +27,7 @@ class MedicinalUses extends React.Component {
 
     return (
       <div className="row">
-        <h1>Search by Medicinal Uses</h1>
+        <h2>Search by Medicinal Uses</h2>
         <div className="col-lg-6">
           <input
             type="text"
