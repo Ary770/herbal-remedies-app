@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import Herbs from '../components/Herbs';
 import HerbShow from './HerbShow';
 import { Route } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
+import * as actions from '../actions/herbs';
 
 class MedicinalUses extends React.Component {
   state = {
@@ -10,34 +12,20 @@ class MedicinalUses extends React.Component {
   }
 
   handleSearch = (event) => {
-    const text = event.target.value
-    if (text !== "") {
+    const input = event.target.value
+    this.props.actions.medicinalUse(input)
 
-      const medicinalUse = text.split(' ').map(
-        w => w.charAt(0).toUpperCase() + w.substr(1)
-      ).join(' ');
-
-      const matchingHerbs = this.props.herbs.filter(herb =>
-        herb.medicinal_uses && herb.medicinal_uses.includes(medicinalUse.trim())
-      );
-
-      if (matchingHerbs) {
-        this.setState({
-          showHerbs: matchingHerbs
-        })
-      }
-    } else {
-      this.setState({ showHerbs: null })
+    if (input === "") {
       this.props.history.replace('/medicinal-uses')
     }
   }
 
   render() {
-    const results = this.state.showHerbs;
-    let herbs = null;
+    const target = this.state.herbs;
+    let herbsList = null;
 
-    if (results) {
-      herbs = <Herbs url={this.props.match.url} herbs={results}/>
+    if (target) {
+      herbsList = <Herbs url={this.props.match.url} herbs={target}/>
     }
 
     return (
@@ -51,7 +39,7 @@ class MedicinalUses extends React.Component {
             placeholder="Search for..."
             />
           <br></br>
-          {herbs}
+          {herbsList}
           <Route path={`${this.props.match.url}/:herbId`} component={HerbShow}/>
         </div>
       </div>
@@ -61,8 +49,12 @@ class MedicinalUses extends React.Component {
 
 const mapStateToProps = state => {
   return ({
-    herbs: state.herbs.herbs
+    herbs: state.herbs.target
   })
 }
 
-export default connect(mapStateToProps)(MedicinalUses)
+const mapDispatchToProps = (dispatch) => {
+  return {actions: bindActionCreators(actions, dispatch)}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MedicinalUses)

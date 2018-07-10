@@ -3,17 +3,18 @@ import { connect } from 'react-redux';
 import Herbs from '../components/Herbs';
 import { Route } from 'react-router-dom';
 import HerbShow from './HerbShow';
+import Alert from '../components/Alert'
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions/herbs';
 
 const HerbsPage = (props) => {
   const {match, herbs} = props;
 
-  const handleSearch = (e) => {
-    const herb = e.target.value
-    props.actions.searchHerb(herb)
+  const handleSearch = (event) => {
+    const input = event.target.value
+    props.actions.searchHerb(input)
 
-    if (herb === "") {
+    if (input === "") {
       props.history.replace('/herbs')
     }
   }
@@ -21,25 +22,24 @@ const HerbsPage = (props) => {
   return (
     <div className='row'>
       <h2>Herbal Remedies</h2>
-      <div className='col-sm-4'>
-        <p>Search by medicinal uses, herbal properties or name:</p>
         <input
           type="text"
           onChange={e => handleSearch(e)}
           className="form-control"
-          placeholder="Search for..."
+          placeholder="Search by medicinal use, herbal properties or name:"
           />
-
-        {herbs.length === 0 ? null: <Herbs url={match.url} herbs={herbs}/>}
-      </div>
-      <Route path={`${match.url}/:herbId`} component={HerbShow}/>
+        <br/>
+      { herbs.length === 0 ? null : <Herbs url={match.url} herbs={herbs}/> }
+      { props.error ? <Alert error={props.error}/> :
+        <Route path={`${match.url}/:herbId`} component={HerbShow}/> }
     </div>
   )
 }
 
 const mapStateToProps = state => {
   return ({
-    herbs: state.herbs.target
+    herbs: state.herbs.target,
+    error: state.herbs.error
   })
 }
 
