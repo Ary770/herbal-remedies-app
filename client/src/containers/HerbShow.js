@@ -7,7 +7,7 @@ const HerbShow = ({ herb }) => {
   const panel = <PanelWrapper key={herb.id} herb={herb}/>
 
   return (
-    <div className='col-md-8'>
+    <div className='col-md-6'>
       <div className='Static'>
         {panel}
       </div>

@@ -12,11 +12,11 @@ const Herbs = (props) => {
   }
 
   return (
-    <div className="col-sm-3">
-      <ul className="nav nav-pills nav-stacked">
-        {herbs}
-      </ul>
-    </div>
+
+    <ul className="nav nav-pills nav-stacked">
+      {herbs}
+    </ul>
+
   )
 }
 
