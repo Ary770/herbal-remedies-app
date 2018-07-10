@@ -11,7 +11,6 @@ const NavBar = () => {
         <p className="navbar-text navbar-right">Data From: <a href="https://www.anniesremedy.com" className="navbar-link">anniesremedy.com</a></p>
       </ul>
     </nav>
-
   )
 };
 
