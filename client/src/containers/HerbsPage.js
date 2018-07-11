@@ -22,7 +22,7 @@ const HerbsPage = (props) => {
   return (
     <div className='row'>
       <div className="col-lg-6">
-        <h3>Top 65 Most Commonly Used Herbs</h3>
+        <h3>Herbal Remedies</h3>
         <input
           type="text"
           onChange={e => handleSearch(e)}

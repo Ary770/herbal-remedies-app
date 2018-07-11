@@ -8,6 +8,28 @@ body {
   padding-right: 148px;
 }
 
+.li-align {
+  padding-top: 9px;
+}
+
+.nav-font-style {
+  font-size: 20px;
+  color: gray;
+}
+
+#nav-p-padding {
+  padding-top: 8px;
+  padding-right: 18px;
+}
+
+#nav-link-gray {
+  color: gray;
+}
+
+#logo-align {
+  padding-top: 2px;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

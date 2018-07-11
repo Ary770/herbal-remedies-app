@@ -1,31 +1,29 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import leafLogo from '../assets/images/leaf-logo.png';
 
 const NavBar = () => {
+  const style = {
+    width: '40px'
+  }
+
   return (
-    <nav className="navbar navbar-default">
-      <div className="container-fluid">
-        <div className="navbar-header">
-          <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span className="sr-only">Toggle navigation</span>
-            <span className="icon-bar"></span>
-            <span className="icon-bar"></span>
-            <span className="icon-bar"></span>
-          </button>
-          <NavLink className="navbar-brand" to="/herbs">Herbal Remedies</NavLink>
-        </div>
-        <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul className="nav navbar-nav">
-            <li><NavLink to="/medicinal-uses">Medicinal Uses</NavLink></li>
-            <li><NavLink to="/properties">Herbal Properties</NavLink></li>
-          </ul>
-          <ul className="nav navbar-nav navbar-right">
-            <li><a href="https://www.anniesremedy.com" className="navbar-link">Data from: anniesremedy.com</a></li>
-          </ul>
-        </div>
-      </div>
+    <nav className="page-header">
+      <ul className="nav nav-pills">
+        <li role="presentation"><NavLink to="/herbs"><img id='logo-align'alt='logo' src={leafLogo} style={style}/></NavLink></li>
+        <li className="li-align" role="presentation">
+          <NavLink className="nav-font-style" to="/medicinal-uses">Medicinal Uses</NavLink>
+        </li>
+        <li className="li-align" role="presentation">
+          <NavLink className="nav-font-style" to="/properties">Herbal Properties</NavLink>
+        </li>
+        <p id="nav-p-padding" className="navbar-text navbar-right"><a id='nav-link-gray' href="https://www.anniesremedy.com" className="navbar-link">Data From: anniesremedy.com</a></p>
+      </ul>
     </nav>
   )
 };
+
+
+
 
 export default NavBar
