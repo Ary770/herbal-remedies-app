@@ -42,8 +42,8 @@ class Properties extends React.Component {
 
     return (
       <div className="row">
-        <h1>Search by Properties</h1>
         <div className="col-lg-6">
+          <h3>Search by Properties</h3>
           <input
             type="text"
             className="form-control"

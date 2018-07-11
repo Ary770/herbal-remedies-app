@@ -21,17 +21,19 @@ const HerbsPage = (props) => {
 
   return (
     <div className='row'>
-      <h2>Herbal Remedies</h2>
+      <div className="col-lg-6">
+        <h3>Top 65 Most Commonly Used Herbs</h3>
         <input
           type="text"
           onChange={e => handleSearch(e)}
           className="form-control"
           placeholder="Search by Medicinal Uses, Herbal Properties or Herb Name..."
-          />
+        />
         <br/>
-      { herbs.length === 0 ? null : <Herbs url={match.url} herbs={herbs}/> }
-      { props.error ? <Alert error={props.error}/> :
-        <Route path={`${match.url}/:herbId`} component={HerbShow}/> }
+        { herbs.length === 0 ? null : <Herbs url={match.url} herbs={herbs}/> }
+        { props.error ? <Alert error={props.error}/> :
+          <Route path={`${match.url}/:herbId`} component={HerbShow}/> }
+      </div>
     </div>
   )
 }

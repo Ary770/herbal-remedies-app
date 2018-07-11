@@ -7,7 +7,8 @@ import Properties from './containers/Properties';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from './actions/herbs';
-import Welcome from './components/Welcome'
+import Welcome from './components/Welcome';
+import Aux from './HOC/Aux';
 
 class App extends Component {
   componentDidMount() {
@@ -20,22 +21,14 @@ class App extends Component {
     return (
       <div className="container">
         <Router>
-          <div>
+          <Aux>
             <Navbar />
             <Route exact path ='/' component={Welcome}/>
             <Route path="/herbs" component={HerbsPage}/>
             <Route path="/medicinal-uses" component={MedicinalUses}/>
             <Route path="/properties" component={Properties}/>
-          </div>
+          </Aux>
         </Router>
-        <hr></hr>
-        <footer>
-          <small className='text-muted'>
-            Currently v0.1.0 /
-            Made by: Ary Baldioceda /
-            <a href="https://github.com/Ary770/herbal-remedies-app"> GitHub</a>
-          </small>
-        </footer>
       </div>
     );
   }
