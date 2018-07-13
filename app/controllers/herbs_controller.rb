@@ -16,4 +16,9 @@ class HerbsController < ApplicationController
     render json: herb, status: 201
   end
 
+  def likes
+    favoriteHerbs = Herb.where('likes > 0')
+    render json: favoriteHerbs, status: 201
+  end
+
 end

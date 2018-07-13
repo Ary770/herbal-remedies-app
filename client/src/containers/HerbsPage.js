@@ -8,9 +8,6 @@ import { bindActionCreators } from 'redux';
 import * as actions from '../actions/herbs';
 
 class HerbsPage extends React.Component {
-  state = {
-    likes: []
-  }
 
   handleSearch = (event) => {
     const input = event.target.value
@@ -24,10 +21,11 @@ class HerbsPage extends React.Component {
   likesHandler = (event) => {
     const herbId = event.target.dataset.id;
 
-    if (this.state.likes.includes(herbId)) {
+    if (this.props.liked.includes(herbId)) {
       return null
     } else {
-      this.setState({ likes: [...this.state.likes, herbId] })
+      this.props.actions.likeHerb(herbId);
+      this.props.history.replace('/herbs');
       this.props.actions.postLike(herbId);
     }
   };
@@ -55,54 +53,11 @@ class HerbsPage extends React.Component {
   }
 }
 
-// const HerbsPage = (props) => {
-//   state = {
-//     liked: []
-//   }
-//
-//   const {match, herbs} = props;
-//
-  // const handleSearch = (event) => {
-  //   const input = event.target.value
-  //   props.actions.searchHerb(input)
-  //
-  //   if (input === "") {
-  //     props.history.replace('/herbs')
-  //   }
-  // };
-  //
-  // const likesHandler = (event) => {
-  //   const herbId = event.target.dataset.id;
-  //   if (true) {
-  //
-  //   }
-  //   props.actions.postLike(herbId);
-  // }
-//
-//   return (
-    // <div className='row'>
-    //   <div className="col-lg-6">
-    //     <h3>Herbal Remedies</h3>
-    //     <input
-    //       type="text"
-    //       onChange={e => handleSearch(e)}
-    //       className="form-control"
-    //       placeholder="Search by Medicinal Uses, Herbal Properties or Herb Name..."
-    //     />
-    //   {console.log('In HerbsPage: ', herbs)}
-    //     <br/>
-    //     { herbs.length === 0 ? null : <Herbs likesHandler={likesHandler} url={match.url} herbs={herbs}/> }
-    //     { props.error ? <Alert error={props.error}/> :
-    //       <Route path={`${match.url}/:herbId`} component={HerbShow}/> }
-    //   </div>
-    // </div>
-//   )
-// }
-
 const mapStateToProps = state => {
   return ({
     herbs: state.herbs.target,
-    error: state.herbs.error
+    error: state.herbs.error,
+    liked: state.likes.liked
   })
 }
 

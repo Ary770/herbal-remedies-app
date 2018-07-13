@@ -11,7 +11,7 @@ export function fetchHerbs() {
         }
       });
   };
-}
+};
 
 export function postLike(herbId) {
   return (dispatch) => {
@@ -24,27 +24,50 @@ export function postLike(herbId) {
       body: JSON.stringify(herbId)
       })
       .then(res => res.json())
-      .then(herb => dispatch({ type: 'UPDATE_LIKE' , herb }))
+      .then(herb => dispatch({ type: 'UPDATE_LIKE' , herb } ))
   };
+};
+
+export function fetchLikes() {
+  return (dispatch) => {
+    dispatch({ type: 'LOADING_LIKES' });
+    return fetch('api/likes')
+      .then(res => res.json())
+      .then(herbs => {
+        if (herbs.error) {
+          return dispatch({ type: 'ERROR', error: herbs.error })
+        } else {
+          return dispatch({ type: 'FETCH_LIKES', herbs })
+        }
+      });
+  };
+};
+
+
+export const likeHerb = herb => {
+  return {
+    type: 'LIKED_DURING_SESSION',
+    herb
+  }
 }
 
 export const searchHerb = input => {
   return {
-    type: 'SEARCH_HERB',
+    type: 'SEARCH_HERBS',
     input
   }
-}
+};
 
 export const medicinalUse = input => {
   return {
     type: 'MEDICINAL_USE',
     input
   }
-}
+};
 
 export const properties = input => {
   return {
     type: 'PROPERTIES',
     input
   }
-}
+};

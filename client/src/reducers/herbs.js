@@ -1,4 +1,9 @@
-export default (state = {loading: false, herbs: [], target: [], error: null}, action) => {
+export default (state = {
+  loading: false,
+  herbs: [],
+  target: [],
+  error: null
+}, action) => {
   switch (action.type) {
     case 'LOADING_HERBS':
       return Object.assign({}, state, {loading: true})
@@ -6,7 +11,7 @@ export default (state = {loading: false, herbs: [], target: [], error: null}, ac
     case 'FETCH_HERBS':
       return Object.assign({}, state, {loading: false, herbs: action.herbs, target: action.herbs})
 
-    case 'SEARCH_HERB':
+    case 'SEARCH_HERBS':
       const formattedInput = action.input.split(' ').map(
         w => w.charAt(0).toUpperCase() + w.substr(1)
       ).join(' ');
@@ -14,7 +19,6 @@ export default (state = {loading: false, herbs: [], target: [], error: null}, ac
       const matchingHerbs = state.herbs.filter(herb =>
         herb.name.includes(formattedInput.trim()) || ( herb.medicinal_uses && herb.medicinal_uses.includes(formattedInput.trim()) ) || (herb.properties && herb.properties.includes(formattedInput.trim()))
       );
-
       return Object.assign({}, state, { target: matchingHerbs })
 
     case 'MEDICINAL_USE':
@@ -34,7 +38,6 @@ export default (state = {loading: false, herbs: [], target: [], error: null}, ac
       const index = state.target.findIndex(herb => herb.id === action.herb.id);
       const updateHerbs = [...state.target];
       updateHerbs[index] = action.herb;
-
       return Object.assign({}, state, { target: updateHerbs }, { herbs: updateHerbs });
 
     default:

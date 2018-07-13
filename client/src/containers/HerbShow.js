@@ -10,7 +10,15 @@ class HerbShow extends React.Component {
 
   hidePanel = () => {
     this.setState({ showPanel: false})
-    this.props.history.replace('/herbs')
+    
+    switch (this.props.match.path) {
+      case '/herbs/:herbId':
+        return this.props.history.replace('/herbs')
+      case '/favorite-herbs/:herbId':
+        return this.props.history.replace('/favorite-herbs')
+      default:
+        return null
+    }
   }
 
   render () {

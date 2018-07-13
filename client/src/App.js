@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import { BrowserRouter as Router,Route } from 'react-router-dom';
 import MedicinalUses from './containers/MedicinalUses';
 import Properties from './containers/Properties';
+import FavoriteHerbs from './containers/FavoriteHerbs';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from './actions/herbs';
@@ -25,6 +26,7 @@ class App extends Component {
             <Navbar />
             <Route exact path ='/' component={Welcome}/>
             <Route path="/herbs" component={HerbsPage}/>
+            <Route path="/favorite-herbs" component={FavoriteHerbs} />
             <Route path="/medicinal-uses" component={MedicinalUses}/>
             <Route path="/properties" component={Properties}/>
           </Aux>
