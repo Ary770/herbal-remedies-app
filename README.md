@@ -9,6 +9,6 @@ You can also see a list of the Top 65 Most Commonly Used Herbs and dynamically l
 To get it running locally, clone the repository. Run bundle install, rake db:migrate, rake db:seed and finally rake start to launch the application.
 
 Video of running app:
-https://youtu.be/8o0prork-LM
+https://youtu.be/evIvuEw2z3w
 
 This project has been licensed under the MIT open source license.
