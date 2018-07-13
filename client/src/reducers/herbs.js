@@ -40,6 +40,9 @@ export default (state = {
       updateHerbs[index] = action.herb;
       return Object.assign({}, state, { target: updateHerbs }, { herbs: updateHerbs });
 
+    case 'RESET_HERBS':
+      return Object.assign({}, state, { target: state.herbs })
+
     default:
       return state;
   }

@@ -9,9 +9,7 @@ import * as actions from '../actions/herbs';
 class FavoriteHerbs extends React.Component {
 
   componentDidMount() {
-    if (this.props.favoriteHerbs.length === 0) {
-      this.props.actions.fetchLikes();
-    }
+    this.props.actions.fetchLikes();
   }
 
   render() {

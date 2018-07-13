@@ -43,6 +43,11 @@ export function fetchLikes() {
   };
 };
 
+export const resetHerbs = () => {
+  return {
+    type: 'RESET_HERBS'
+  }
+}
 
 export const likeHerb = herb => {
   return {

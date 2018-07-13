@@ -10,11 +10,11 @@ import * as actions from '../actions/herbs';
 class HerbsPage extends React.Component {
 
   handleSearch = (event) => {
-    const input = event.target.value
-    this.props.actions.searchHerb(input)
+    const input = event.target.value;
+    this.props.actions.searchHerb(input);
 
     if (input === "") {
-      this.props.history.replace('/herbs')
+      this.props.history.replace('/herbs');
     }
   };
 
@@ -30,6 +30,11 @@ class HerbsPage extends React.Component {
     }
   };
 
+  resetHerbs = () => {
+    this.props.actions.resetHerbs();
+    this.props.history.replace('/herbs');
+  }
+
   render() {
     const {match, herbs} = this.props;
 
@@ -37,12 +42,19 @@ class HerbsPage extends React.Component {
       <div className='row'>
         <div className="col-lg-6">
           <h3>Herbal Remedies</h3>
-          <input
-            type="text"
-            onChange={event => this.handleSearch(event)}
-            className="form-control"
-            placeholder="Search by Medicinal Uses, Herbal Properties or Herb Name..."
-          />
+
+          <div className='input-group'>
+            <input
+              type="text"
+              onChange={event => this.handleSearch(event)}
+              className="form-control"
+              placeholder="Search by Medicinal Uses, Herbal Properties or Herb Name..."
+            />
+          <span className="input-group-btn">
+              <button onClick={this.resetHerbs} className="btn btn-default" type="button">Reset Filter</button>
+            </span>
+          </div>
+
           <br/>
           { herbs.length === 0 ? null : <Herbs likesHandler={this.likesHandler} url={match.url } herbs={herbs}/> }
           { this.props.error ? <Alert error={this.props.error}/> :
