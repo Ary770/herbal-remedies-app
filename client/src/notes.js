@@ -25,3 +25,47 @@
     </div>
   </div>
 </nav>
+
+//Old functional component Herbs.js
+
+// const Herbs = (props) => {
+//   let herbs = null;
+//
+//   if (props.herbs) {
+//     herbs = props.herbs.map(herb =>
+//       <h4 key={herb.id}>
+//         <li role='presentation'>
+//           <Link to={`${props.url}/${herb.id}`}>{herb.name}</Link>
+//           <button type='button' onClick={increaseCount}></button>
+//         </li>
+//       </h4>
+//     )
+//   }
+//
+//   return (
+//     <div className="col-sm-3">
+//       <ul className="nav nav-pills nav-stacked">
+//         {herbs}
+//       </ul>
+//     </div>
+//   )
+// }
+ 
+counterHandler = (event) => {
+  const herbId = event.target.dataset.id;
+  const matchingHerb = this.props.herbs.filter(herb => herb.id.toString() === herbId).pop();
+
+  if (matchingHerb.likes) {
+    ++matchingHerb.likes;
+  } else {
+    matchingHerb.likes = 1;
+  }
+
+  const newState = [...this.state.likes];
+
+  newState.push(matchingHerb)
+
+  this.setState({
+    likes: newState
+  })
+}

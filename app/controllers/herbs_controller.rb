@@ -8,4 +8,12 @@ class HerbsController < ApplicationController
     herb = Herb.find_by(id: params[:id])
     render json: herb, status: 201
   end
+
+  def update
+    herb = Herb.find_by(id: params[:id])
+    herb.likes += 1
+    herb.save
+    render json: herb, status: 201
+  end
+
 end

@@ -13,6 +13,21 @@ export function fetchHerbs() {
   };
 }
 
+export function postLike(herbId) {
+  return (dispatch) => {
+    dispatch({ type: 'POSTING_LIKE' });
+    return fetch(`api/herbs/${herbId}`, {
+      method: 'PATCH',
+      headers: {
+        accept: 'application/json'
+      },
+      body: JSON.stringify(herbId)
+      })
+      .then(res => res.json())
+      .then(herb => dispatch({ type: 'UPDATE_LIKE' , herb }))
+  };
+}
+
 export const searchHerb = input => {
   return {
     type: 'SEARCH_HERB',
