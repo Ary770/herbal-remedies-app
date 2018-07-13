@@ -21,7 +21,7 @@ const Herbs = (props) => {
               <span data-id={herb.id} className="glyphicon glyphicon-thumbs-up"></span> {herb.likes}
             </button>
              :
-            null
+            <span className='span-likes'> {herb.likes}</span>
           }
 
         </li>

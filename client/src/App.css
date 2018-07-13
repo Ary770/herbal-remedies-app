@@ -46,6 +46,12 @@ body {
     transition: 0.3s ease;
 }
 
+.span-likes {
+  display: inline;
+  font-size: 14px;
+  color: #2A632E;
+}
+
 .btn-like:hover {
 	 transform: translateY(-3px);
 }

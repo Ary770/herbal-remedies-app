@@ -17,7 +17,7 @@ class HerbsController < ApplicationController
   end
 
   def likes
-    favoriteHerbs = Herb.where('likes > 0')
+    favoriteHerbs = Herb.where('likes > 0').order('likes desc')
     render json: favoriteHerbs, status: 201
   end
 

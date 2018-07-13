@@ -26,7 +26,6 @@ class FavoriteHerbs extends React.Component {
       <div className="row">
         <div className="col-lg-6">
           <h3>Favorite Herbs</h3>
-          <br></br>
           {herbsList}
           <Route path={`${this.props.match.url}/:herbId`} component={HerbShow}/>
         </div>
