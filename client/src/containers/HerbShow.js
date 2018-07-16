@@ -5,9 +5,6 @@ import '../App.css';
 import { updatePath } from '../utilities/handlers'
 
 class HerbShow extends React.Component {
-  state = {
-    showPanel: true,
-  }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.herb === nextProps.herb) {
@@ -16,7 +13,6 @@ class HerbShow extends React.Component {
   }
 
   hidePanel = () => {
-    this.setState({ showPanel: false})
     updatePath(this.props);
   }
 
@@ -27,8 +23,7 @@ class HerbShow extends React.Component {
     return (
       <div className='col-md-6'>
         <div className='Static'>
-          {console.log(this.state.showPanel)}
-          {this.state.showPanel ? panel : null}
+          {panel}
         </div>
       </div>
     )
