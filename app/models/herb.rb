@@ -1,4 +1,6 @@
 class Herb < ApplicationRecord
+  has_and_belongs_to_many :medicinal_uses
+
   def self.create_herbs_from_hash(herbs_and_path_hash)
     herbs_and_path_hash.each do |herb, h_path|
       new_herb = self.create
@@ -32,6 +34,15 @@ class Herb < ApplicationRecord
       self.send(("#{key}="), value)
     end
     self.save
+  end
+
+  def self.list_medicinal_uses
+    all_medicnal_uses = Herb.all.map do |herb|
+      if herb.medicinal_uses != nil
+        medicinal_use = herb.medicinal_uses.gsub('*', '').strip
+      end
+    end
+    all_medicnal_uses.flatten.uniq.compact
   end
 
 end
