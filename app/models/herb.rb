@@ -31,9 +31,10 @@ class Herb < ApplicationRecord
 
   def add_herb_attributes(herb_attributes_hash)
     herb_attributes_hash.each do |key, value|
+      binding.pry
       self.send(("#{key}="), value)
     end
-    self.save
+    # self.save
   end
 
   def self.list_medicinal_uses

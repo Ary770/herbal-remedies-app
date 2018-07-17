@@ -15,8 +15,6 @@ ActiveRecord::Schema.define(version: 20180717204014) do
   create_table "herbs", force: :cascade do |t|
     t.string "name"
     t.string "path"
-    t.string "medicinal_uses"
-    t.string "properties"
     t.string "preparation"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -24,13 +22,14 @@ ActiveRecord::Schema.define(version: 20180717204014) do
   end
 
   create_table "herbs_medicinal_uses", force: :cascade do |t|
+    t.integer "herb_id"
+    t.integer "medicinal_use_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "medicinal_uses", force: :cascade do |t|
     t.string "text"
-    t.integer "herb_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
