@@ -1,21 +1,25 @@
 import React from 'react';
 import { Panel } from 'react-bootstrap';
+import Aux from '../HOC/Aux'
 
 const PanelWrapper = ({herb, hidePanel}) => {
   let medicinal_uses = null;
   let properties = null;
 
-  if (herb.medicinal_uses) {
-    medicinal_uses = herb.medicinal_uses.map((name, index, array) =>
-      array[index] !== array[array.length - 1] ? name + (', ') : name
-    )
-  }
+  herb.medicinal_uses !== "" ?
+    medicinal_uses = <Aux>
+                        <h3>Medicinal Uses</h3>
+                        <p>{herb.medicinal_uses}</p>
+                     </Aux>
+    : null
 
-  if (herb.properties) {
-    properties = herb.properties.map((name, index, array) =>
-      array[index] !== array[array.length - 1] ? name + (', ') : name
-    )
-  }
+
+  herb.properties !== "" ?
+    properties = <Aux>
+                        <h3>Medicinal Uses</h3>
+                        <p>{herb.properties}</p>
+                     </Aux>
+    : null
 
   return (
     <Panel bsStyle="success">
@@ -28,17 +32,14 @@ const PanelWrapper = ({herb, hidePanel}) => {
         </Panel.Title>
       </Panel.Heading>
       <Panel.Body>
-        { herb.medicinal_uses ?
-          <h3>Medicinal Uses</h3> :
-          null
-        }
-        <p>{medicinal_uses}</p>
 
-        <h3>Properties</h3>
-        <p>{properties}</p>
+        {medicinal_uses}
+
+        {properties}
 
         <h3>Preparation & Dosage</h3>
         <p>{herb.preparation}</p>
+
       </Panel.Body>
     </Panel>
   )

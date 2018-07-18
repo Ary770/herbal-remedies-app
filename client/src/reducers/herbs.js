@@ -1,49 +1,36 @@
-export default (state = {
-  loading: false,
-  herbs: [],
-  target: [],
-  error: null
-}, action) => {
+export default (state = { loading: false, herbs: [], target: [], error: null}, action) => {
   switch (action.type) {
-    case 'LOADING_HERBS':
-      return Object.assign({}, state, {loading: true})
+      case 'LOADING_HERBS':
+        return Object.assign({}, state, {loading: true})
 
-    case 'FETCH_HERBS':
-      return Object.assign({}, state, {loading: false, herbs: action.herbs, target: action.herbs})
+      case 'FETCH_HERBS':
+        return Object.assign({}, state, {loading: false, herbs: action.herbs, target: action.herbs})
 
-    case 'SEARCH_HERBS':
-      const formattedInput = action.input.split(' ').map(
-        w => w.charAt(0).toUpperCase() + w.substr(1)
-      ).join(' ');
+      case 'SEARCH_HERBS':
+        const formattedInput = action.input.toLocaleLowerCase();
 
-      const matchingHerbs = state.herbs.filter(herb =>     
-        herb.name.includes(formattedInput.trim()) || ( herb.medicinal_uses && herb.medicinal_uses.includes(formattedInput.trim())) || (herb.properties && herb.properties.includes(formattedInput.trim()))
-      );
-      return Object.assign({}, state, { target: matchingHerbs })
+        const matchingHerbs = state.herbs.filter(herb =>
+          herb.name.toLocaleLowerCase().includes(formattedInput.trim()) || ( herb.medicinal_uses && herb.medicinal_uses.toLocaleLowerCase().includes(formattedInput.trim()) ) || (herb.properties && herb.properties.toLocaleLowerCase().includes(formattedInput.trim()))
+        );
+        return Object.assign({}, state, { target: matchingHerbs })
 
-    case 'MEDICINAL_USE':
-      const medicinalUse = action.input.split(' ').map(
-        w => w.charAt(0).toUpperCase() + w.substr(1)
-      ).join(' ');
+      case 'ERROR':
+        return Object.assign({}, state, { error: action.error })
 
-      const matches = state.herbs.filter(herb =>
-        herb.medicinal_uses && herb.medicinal_uses.includes(medicinalUse.trim())
-      );
-      return Object.assign({}, state, { target: matches })
+      case 'UPDATE_LIKE':
+        const herbsIndex = state.herbs.findIndex(herb => herb.id === action.herb.id);
+        const targetIndex = state.target.findIndex(herb => herb.id === action.herb.id);
+        const updateHerbs = [...state.herbs];
+        const updateTarget = [...state.target];
 
-    case 'ERROR':
-      return Object.assign({}, state, { error: action.error })
+        updateHerbs[herbsIndex] = action.herb;
+        updateTarget[targetIndex] = action.herb;
+        return Object.assign({}, state, { target: updateTarget }, { herbs: updateHerbs });
 
-    case 'UPDATE_LIKE':
-      const index = state.target.findIndex(herb => herb.id === action.herb.id);
-      const updateHerbs = [...state.target];
-      updateHerbs[index] = action.herb;
-      return Object.assign({}, state, { target: updateHerbs }, { herbs: updateHerbs });
+      case 'RESET_HERBS':
+        return Object.assign({}, state, { target: state.herbs })
 
-    case 'RESET_HERBS':
-      return Object.assign({}, state, { target: state.herbs })
-
-    default:
-      return state;
+      default:
+        return state;
+    }
   }
-}

@@ -4,11 +4,11 @@ class HerbSerializer < ActiveModel::Serializer
   # has_many :properties, serializer: PropertySerializer
 
   def medicinal_uses
-    self.object.medicinal_uses.map{|mu| mu.name}
+    self.object.medicinal_uses.map{|mu| mu.name}.join(', ')
   end
 
   def properties
-    self.object.properties.map{|p| p.name}
+    self.object.properties.map{|p| p.name}.join(', ') 
   end
 
 end
