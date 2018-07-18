@@ -6,14 +6,14 @@ const PanelWrapper = ({herb, hidePanel}) => {
   let properties = null;
 
   if (herb.medicinal_uses) {
-    medicinal_uses = herb.medicinal_uses.map((mu, index, array) =>
-      array[index].id !== array[array.length - 1].id ? mu.name + (',') : mu.name
+    medicinal_uses = herb.medicinal_uses.map((name, index, array) =>
+      array[index] !== array[array.length - 1] ? name + (', ') : name
     )
   }
 
   if (herb.properties) {
-    properties = herb.properties.map((mu, index, array) =>
-      array[index].id !== array[array.length - 1].id ? mu.name + (',') : mu.name
+    properties = herb.properties.map((name, index, array) =>
+      array[index] !== array[array.length - 1] ? name + (', ') : name
     )
   }
 

@@ -35,11 +35,11 @@ class Herb < ApplicationRecord
       if key === :medicinal_uses
         # Instantiate Medicinal Uses and associate them with herb instance
         value.each do |medicinal_use|
-          self.medicinal_uses << MedicinalUse.find_or_create_by({name: medicinal_use.strip})
+          self.medicinal_uses << MedicinalUse.find_or_create_by({name: medicinal_use.lstrip})
         end
       elsif key === :properties
         value.each do |property|
-          self.properties << Property.find_or_create_by({name: property.strip})
+          self.properties << Property.find_or_create_by({name: property.lstrip})
         end
       else
         self.send(("#{key}="), value)
