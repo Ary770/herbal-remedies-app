@@ -1,0 +1,2 @@
+class HerbsProperty < ApplicationRecord
+end

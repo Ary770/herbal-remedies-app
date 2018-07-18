@@ -31,11 +31,14 @@ class Scraper < ApplicationRecord
     attribute_hash = {}
     medicinal_uses = doc.css('.nobullets').css('li').css('.tag').text
     properties = doc.css('.nobullets').css('li').css('.chartID').text
-    if medicinal_uses != ''
+    if medicinal_uses != ""
       medicinal_uses.slice!('*')
-      attribute_hash[:medicinal_uses] = medicinal_uses.gsub('*', ',').strip
+      attribute_hash[:medicinal_uses] = medicinal_uses.gsub('*', ',').strip.split(',')
     end
-    attribute_hash[:properties] = properties if properties != ""
+    if properties != ""
+      properties.slice!('*')
+      attribute_hash[:properties] = properties.gsub('*', ',').strip.split(',')
+    end
     attribute_hash[:preparation] = doc.css('.physW').text
     attribute_hash[:preparation].gsub!("Preparation Methods & Dosage :", '')
     attribute_hash[:preparation].chomp!('Looking for something you can read offline? Join our mailing list and get a free copy of  Methods for Using Herbs. This free handbook includes instructions on how to make basic herbal preparations at home. It covers making herbal teas, herb infused oils and balms, tinctures, and more.')
