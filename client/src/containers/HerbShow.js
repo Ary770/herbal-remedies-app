@@ -1,24 +1,19 @@
 import React from 'react';
+import '../App.css';
 import { connect } from 'react-redux';
 import PanelWrapper from '../components/PanelWrapper';
-import '../App.css';
+import { updatePath } from '../utilities/handlers'
 
 class HerbShow extends React.Component {
-  state = {
-    showPanel: true,
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.herb === nextProps.herb) {
+      updatePath(this.props);
+    }
   }
 
   hidePanel = () => {
-    this.setState({ showPanel: false})
-    
-    switch (this.props.match.path) {
-      case '/herbs/:herbId':
-        return this.props.history.replace('/herbs')
-      case '/favorite-herbs/:herbId':
-        return this.props.history.replace('/favorite-herbs')
-      default:
-        return null
-    }
+    updatePath(this.props);
   }
 
   render () {
@@ -28,13 +23,12 @@ class HerbShow extends React.Component {
     return (
       <div className='col-md-6'>
         <div className='Static'>
-          {this.state.showPanel ? panel : null}
+          {panel}
         </div>
       </div>
     )
   }
 }
-
 
 const mapStateToProps = (state, ownProps) => {
   const herb = state.herbs.herbs.find(herb =>
