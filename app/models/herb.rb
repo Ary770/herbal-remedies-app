@@ -1,7 +1,7 @@
 class Herb < ApplicationRecord
   has_and_belongs_to_many :medicinal_uses
 
-  def self.create_herbs_from_hash(herbs_and_path_hash)
+  def Herb.create_herbs_from_hash(herbs_and_path_hash)
     herbs_and_path_hash.each do |herb, h_path|
       new_herb = self.create
       new_herb.name = herb
@@ -32,6 +32,7 @@ class Herb < ApplicationRecord
   def add_herb_attributes(herb_attributes_hash)
     herb_attributes_hash.each do |key, value|
       binding.pry
+      # Instantiate Medicinal Uses and associate them with self herb
       self.send(("#{key}="), value)
     end
     # self.save

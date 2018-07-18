@@ -31,8 +31,10 @@ class Scraper < ApplicationRecord
     attribute_hash = {}
     medicinal_uses = doc.css('.nobullets').css('li').css('.tag').text
     properties = doc.css('.nobullets').css('li').css('.chartID').text
-    binding.pry
-    attribute_hash[:medicinal_uses] = medicinal_uses if medicinal_uses != ""
+    if medicinal_uses != ''
+      medicinal_uses.slice!('*')
+      attribute_hash[:medicinal_uses] = medicinal_uses.gsub('*', ',').strip
+    end
     attribute_hash[:properties] = properties if properties != ""
     attribute_hash[:preparation] = doc.css('.physW').text
     attribute_hash[:preparation].gsub!("Preparation Methods & Dosage :", '')
