@@ -1,12 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Herbs from '../components/Herbs';
-import HerbShow from './HerbShow';
-import { Route } from 'react-router-dom';
+// import Herbs from '../components/Herbs';
+// import HerbShow from './HerbShow';
+import MedicinalUsesList from '../components/MedicinalUsesList';
+// import { Route } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
-import * as actions from '../actions/herbs';
+import * as actions from '../actions/medicinalUses';
 
 class MedicinalUsesPage extends React.Component {
+
+  componentDidMount() {
+    this.props.actions.fetchMedicinalUses();
+  }
 
   // handleSearch = (event) => {
   //   const input = event.target.value
@@ -18,11 +23,11 @@ class MedicinalUsesPage extends React.Component {
   // }
 
   render() {
-    const target = this.props.herbs;
-    let herbsList = null;
+    const target = this.props.medicinal_uses;
+    let medicinalUses = null;
 
     if (target) {
-      herbsList = <Herbs url={this.props.match.url} herbs={target}/>
+      medicinalUses = <MedicinalUsesList url={this.props.match.url} medicinalUses={target}/>
     }
 
     return (
@@ -36,17 +41,17 @@ class MedicinalUsesPage extends React.Component {
             placeholder="Search for..."
             />
           <br></br>
-          {herbsList}
-          <Route path={`${this.props.match.url}/:herbId`} component={HerbShow}/>
+          {medicinalUses}
+
         </div>
       </div>
     )
   }
 }
-
+  // <Route path={`${this.props.match.url}/:herbId`} component={HerbShow}/>
 const mapStateToProps = state => {
   return ({
-    medicinal_uses: state.medicinal_uses.medicinal_uses,
+    medicinal_uses: state.medicinal_uses.target,
     herbs: state.herbs.target
   })
 }
