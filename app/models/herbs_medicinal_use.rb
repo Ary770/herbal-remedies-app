@@ -1,0 +1,2 @@
+class HerbsMedicinalUse < ApplicationRecord
+end

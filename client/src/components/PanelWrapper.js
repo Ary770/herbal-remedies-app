@@ -1,61 +1,49 @@
 import React from 'react';
 import { Panel } from 'react-bootstrap';
+import Aux from '../HOC/Aux'
 
-class PanelWrapper extends React.Component {
-  render() {
-    const {herb, hidePanel} = this.props
+const PanelWrapper = ({herb, hidePanel}) => {
+  let medicinal_uses = null;
+  let properties = null;
 
-    return(
-      <Panel bsStyle="success">
-        <Panel.Heading>
-          <Panel.Title componentClass="h1">
-            <b>{herb.name}</b>
-            <button onClick={hidePanel} type="button" className="close" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </Panel.Title>
-        </Panel.Heading>
-        <Panel.Body>
-          {herb.medicinal_uses ?
-            <h3>Medicinal Uses</h3> :
-            null
-          }
-          <p>{herb.medicinal_uses}</p>
+  herb.medicinal_uses !== "" ?
+    medicinal_uses = <Aux>
+                        <h3>Medicinal Uses</h3>
+                        <p>{herb.medicinal_uses}</p>
+                     </Aux>
+    : null
 
-          <h3>Properties</h3>
-          <p>{herb.properties}</p>
 
-          <h3>Preparation & Dosage</h3>
-          <p>{herb.preparation}</p>
-        </Panel.Body>
-      </Panel>
-    )
-  }
+  herb.properties !== "" ?
+    properties = <Aux>
+                        <h3>Medicinal Uses</h3>
+                        <p>{herb.properties}</p>
+                     </Aux>
+    : null
+
+  return (
+    <Panel bsStyle="success">
+      <Panel.Heading>
+        <Panel.Title componentClass="h1">
+          <b>{herb.name}</b>
+          <button onClick={hidePanel} type="button" className="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </Panel.Title>
+      </Panel.Heading>
+      <Panel.Body>
+
+        {medicinal_uses}
+
+        {properties}
+
+        <h3>Preparation & Dosage</h3>
+        <p>{herb.preparation}</p>
+
+      </Panel.Body>
+    </Panel>
+  )
 }
 
-// const PanelWrapper = ({herb, hidePanel}) =>
-//   <Panel bsStyle="success">
-//     <Panel.Heading>
-//       <Panel.Title componentClass="h1">
-//         <b>{herb.name}</b>
-//         <button onClick={hidePanel} type="button" className="close" aria-label="Close">
-//           <span aria-hidden="true">&times;</span>
-//         </button>
-//       </Panel.Title>
-//     </Panel.Heading>
-//     <Panel.Body>
-//       {herb.medicinal_uses ?
-//         <h3>Medicinal Uses</h3> :
-//         null
-//       }
-//       <p>{herb.medicinal_uses}</p>
-//
-//       <h3>Properties</h3>
-//       <p>{herb.properties}</p>
-//
-//       <h3>Preparation & Dosage</h3>
-//       <p>{herb.preparation}</p>
-//     </Panel.Body>
-//   </Panel>
 
 export default PanelWrapper

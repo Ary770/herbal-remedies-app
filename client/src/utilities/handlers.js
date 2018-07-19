@@ -10,7 +10,6 @@
 //     this.props.actions.postLike(herbId);
 //   }
 // };
-
 export const updatePath = (props) => {
   switch (props.match.path) {
     case '/herbs/:herbId':

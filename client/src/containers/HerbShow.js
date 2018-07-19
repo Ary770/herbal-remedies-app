@@ -1,7 +1,7 @@
 import React from 'react';
+import '../App.css';
 import { connect } from 'react-redux';
 import PanelWrapper from '../components/PanelWrapper';
-import '../App.css';
 import { updatePath } from '../utilities/handlers'
 
 class HerbShow extends React.Component {

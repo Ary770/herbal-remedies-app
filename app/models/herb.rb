@@ -1,5 +1,8 @@
 class Herb < ApplicationRecord
-  def self.create_herbs_from_hash(herbs_and_path_hash)
+  has_and_belongs_to_many :medicinal_uses
+  has_and_belongs_to_many :properties
+
+  def Herb.create_herbs_from_hash(herbs_and_path_hash)
     herbs_and_path_hash.each do |herb, h_path|
       new_herb = self.create
       new_herb.name = herb
@@ -29,7 +32,18 @@ class Herb < ApplicationRecord
 
   def add_herb_attributes(herb_attributes_hash)
     herb_attributes_hash.each do |key, value|
-      self.send(("#{key}="), value)
+      if key === :medicinal_uses
+        # Instantiate Medicinal Uses and associate them with herb instance
+        value.each do |medicinal_use|
+          self.medicinal_uses << MedicinalUse.find_or_create_by({name: medicinal_use.lstrip})
+        end
+      elsif key === :properties
+        value.each do |property|
+          self.properties << Property.find_or_create_by({name: property.lstrip})
+        end
+      else
+        self.send(("#{key}="), value)
+      end
     end
     self.save
   end
