@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 // import Herbs from '../components/Herbs';
 // import HerbShow from './HerbShow';
 import MedicinalUsesList from '../components/MedicinalUsesList';
-// import { Route } from 'react-router-dom';
+import MedicinalUseShow from './MedicinalUseShow';
+import { Route } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions/medicinalUses';
 
@@ -23,7 +24,7 @@ class MedicinalUsesPage extends React.Component {
   // }
 
   render() {
-    const target = this.props.medicinal_uses;
+    const { target, match } = this.props;
     let medicinalUses = null;
 
     if (target) {
@@ -42,16 +43,15 @@ class MedicinalUsesPage extends React.Component {
             />
           <br></br>
           {medicinalUses}
-
         </div>
       </div>
     )
   }
 }
-  // <Route path={`${this.props.match.url}/:herbId`} component={HerbShow}/>
+
 const mapStateToProps = state => {
   return ({
-    medicinal_uses: state.medicinal_uses.target,
+    target: state.medicinalUses.target,
     herbs: state.herbs.target
   })
 }

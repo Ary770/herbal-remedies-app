@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import herbs from './herbs';
 import likes from './likes';
-import medicinal_uses from './medicinal_uses';
+import medicinalUses from './medicinalUses';
 
 export default combineReducers({
-  herbs, likes, medicinal_uses
+  herbs, likes, medicinalUses
 });

@@ -3,14 +3,13 @@ import { Link } from 'react-router-dom';
 
 const Herbs = (props) => {
   let herbs = null;
-
+  debugger
   if (props.herbs) {
     herbs = props.herbs.map(herb =>
       <h4 key={herb.id}>
         <li role='presentation'>
           <Link to={`${props.url}/${herb.id}`}>{herb.name}</Link>
           <span>  </span>
-
           { props.url === '/herbs' ?
             <button
               className='btn-like'
