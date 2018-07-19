@@ -11,4 +11,7 @@ To get it running locally, clone the repository. Run bundle install, rake db:mig
 Video of running app:
 https://youtu.be/evIvuEw2z3w
 
+Blog Post:
+http://ary770.com/search_component_with_react
+
 This project has been licensed under the MIT open source license.
