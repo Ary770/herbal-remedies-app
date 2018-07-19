@@ -21,7 +21,6 @@ export function postLike(herbId) {
       headers: {
         accept: 'application/json'
       },
-      body: JSON.stringify(herbId)
       })
       .then(res => res.json())
       .then(herb => dispatch({ type: 'UPDATE_LIKE' , herb } ))

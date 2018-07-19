@@ -2,7 +2,7 @@ import React from 'react';
 import '../App.css';
 import { connect } from 'react-redux';
 import PanelWrapper from '../components/PanelWrapper';
-import { updatePath } from '../utilities/handlers'
+import { updatePath } from '../utilities/functions'
 
 class HerbShow extends React.Component {
 
