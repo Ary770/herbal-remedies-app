@@ -14,8 +14,8 @@ export const updatePath = (props) => {
   switch (props.match.path) {
     case '/herbs/:herbId':
       return props.history.replace('/herbs')
-    case '/favorite-herbs/:herbId':
-      return props.history.replace('/favorite-herbs')
+    case '/favorite_herbs/:herbId':
+      return props.history.replace('/favorite_herbs')
     default:
       return null
   }

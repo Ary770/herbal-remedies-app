@@ -12,10 +12,10 @@ const NavBar = () => {
       <ul className="nav nav-pills">
         <li role="presentation"><NavLink to="/herbs"><img id='logo-align'alt='logo' src={leafLogo} style={style}/></NavLink></li>
         <li className="li-align" role="presentation">
-        
+
         </li>
         <li className="li-align" role="presentation">
-          <NavLink className="nav-font-style" to="/favorite-herbs">Favorite Herbs</NavLink>
+          <NavLink className="nav-font-style" to="/favorite_herbs">Favorite Herbs</NavLink>
         </li>
         <p id="nav-p-padding" className="navbar-text navbar-right"><a id='nav-link-gray' href="https://www.anniesremedy.com" className="navbar-link">Data From: anniesremedy.com</a></p>
       </ul>

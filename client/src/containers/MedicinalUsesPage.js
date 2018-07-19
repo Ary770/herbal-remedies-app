@@ -6,16 +6,16 @@ import { Route } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions/herbs';
 
-class MedicinalUses extends React.Component {
+class MedicinalUsesPage extends React.Component {
 
-  handleSearch = (event) => {
-    const input = event.target.value
-    this.props.actions.medicinalUse(input)
-
-    if (input === "") {
-      this.props.history.replace('/medicinal-uses')
-    }
-  }
+  // handleSearch = (event) => {
+  //   const input = event.target.value
+  //   this.props.actions.medicinalUse(input)
+  //
+  //   if (input === "") {
+  //     this.props.history.replace('/medicinal-uses')
+  //   }
+  // }
 
   render() {
     const target = this.props.herbs;
@@ -46,6 +46,7 @@ class MedicinalUses extends React.Component {
 
 const mapStateToProps = state => {
   return ({
+    medicinal_uses: state.medicinal_uses.medicinal_uses,
     herbs: state.herbs.target
   })
 }
@@ -54,4 +55,4 @@ const mapDispatchToProps = (dispatch) => {
   return {actions: bindActionCreators(actions, dispatch)}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MedicinalUses)
+export default connect(mapStateToProps, mapDispatchToProps)(MedicinalUsesPage)

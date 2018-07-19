@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import HerbsPage from './containers/HerbsPage';
 import Navbar from './components/Navbar';
 import { BrowserRouter as Router,Route } from 'react-router-dom';
-import MedicinalUses from './containers/MedicinalUses';
+import MedicinalUsesPage from './containers/MedicinalUsesPage';
 import Properties from './containers/Properties';
 import FavoriteHerbs from './containers/FavoriteHerbs';
 import { connect } from 'react-redux';
@@ -26,8 +26,8 @@ class App extends Component {
             <Navbar />
             <Route exact path ='/' component={Welcome}/>
             <Route path="/herbs" component={HerbsPage}/>
-            <Route path="/favorite-herbs" component={FavoriteHerbs} />
-            <Route path="/medicinal-uses" component={MedicinalUses}/>
+            <Route path="/favorite_herbs" component={FavoriteHerbs} />
+            <Route path="/medicinal_uses" component={MedicinalUsesPage}/>
             <Route path="/properties" component={Properties}/>
           </Aux>
         </Router>
