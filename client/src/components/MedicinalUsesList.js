@@ -20,6 +20,7 @@ class MedicinalUsesList extends React.Component {
   // }
 
   fetchHerbsHandler = (muId) => {
+    //fetch giving errors, consider searching herbs in reducer that include medicinaluse
     this.props.actions.fetchMedicinalUseHerbs(muId)
   }
 
