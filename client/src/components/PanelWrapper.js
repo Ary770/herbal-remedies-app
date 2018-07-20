@@ -6,20 +6,19 @@ const PanelWrapper = ({herb, hidePanel}) => {
   let medicinal_uses = null;
   let properties = null;
 
-  herb.medicinal_uses !== "" ?
+  if (herb.medicinal_uses !== "") {
     medicinal_uses = <Aux>
                         <h3>Medicinal Uses</h3>
                         <p>{herb.medicinal_uses}</p>
                      </Aux>
-    : null
+  }
 
-
-  herb.properties !== "" ?
+  if (herb.properties !== "") {
     properties = <Aux>
                         <h3>Medicinal Uses</h3>
                         <p>{herb.properties}</p>
                      </Aux>
-    : null
+  }
 
   return (
     <Panel bsStyle="success">

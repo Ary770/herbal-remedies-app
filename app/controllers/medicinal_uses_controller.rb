@@ -4,4 +4,10 @@ class MedicinalUsesController < ApplicationController
     render json: medicinal_uses, status: 201
   end
 
+  def show
+    medicinal_use = MedicinalUse.find_by(id: params[:id])
+
+    render json: medicinal_use.herbs, status: 201
+  end
+
 end

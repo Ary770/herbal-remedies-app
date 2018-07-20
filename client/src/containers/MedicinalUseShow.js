@@ -5,27 +5,27 @@ import { connect } from 'react-redux';
 import Herbs from '../components/Herbs'
 import { updatePath } from '../utilities/functions'
 import Aux from '../HOC/Aux'
+// import { bindActionCreators } from 'redux';
+// import * as actions from '../actions/medicinalUses';
 
 class MedicinalUseShow extends React.Component {
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.medicinalUse === nextProps.medicinalUse) {
+    if (this.props.herbs === nextProps.herbs) {
       updatePath(this.props);
     }
   }
 
-  hidePanel = () => {
-    updatePath(this.props);
-  }
-
   render () {
-    const medicinalUse = this.props.medicinalUse
-    // const panel = <PanelWrapper key={herb.id} herb={herb} hidePanel={this.hidePanel}/>
-    return (
-      <div className='col-md-6'>
-        <div className='Static'>
+    let displayHerbs = null;
 
-        </div>
+    if (this.props.herbs.length !== 0 ) {
+      displayHerbs = <Herbs herbs={this.props.herbs} />
+    }
+
+    return (
+      <div >
+        {displayHerbs}
       </div>
     )
   }
@@ -33,14 +33,23 @@ class MedicinalUseShow extends React.Component {
 // <Herbs url={this.props.match.url} herbs={herbs}/>
 
 const mapStateToProps = (state, ownProps) => {
-  const medicinalUse = state.medicinalUses.medicinalUses.find(mu =>
+  const medicinalUse = state.medicinalUses.target.find(mu =>
     mu.id.toString() === ownProps.match.params.medicinalUseId
   )
-  if (medicinalUse) {
-    return { medicinalUse }
-  } else {
-    return { medicinalUse: {} }
-  }
+  // const herbs = state.medicinalUses.herbs
+  //
+  // if (medicinalUse && herbs != [] ) {
+  //   return {
+  //     medicinalUse,
+  //     herbs
+  //    }
+  // } else {
+  //   return { medicinalUse: {} }
+  // }
+  return({
+    medicinalUse: medicinalUse,
+    herbs: state.medicinalUses.herbs
+  })
 }
 
 export default connect(mapStateToProps)(MedicinalUseShow);
