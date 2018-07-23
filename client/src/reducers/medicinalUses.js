@@ -1,4 +1,4 @@
-export default (state = { medicinalUses: [], target: [], loading: false, herbs: [] }, action) => {
+export default (state = { medicinalUses: [], target: [], loading: false, herbs: [], muId: '' }, action) => {
   switch (action.type) {
     case 'LOADING_MEDICINAL_USES':
       return Object.assign({}, state, { loading: true })
@@ -17,7 +17,7 @@ export default (state = { medicinalUses: [], target: [], loading: false, herbs: 
       return Object.assign({}, state, { loading: true })
 
     case 'FETCH_MU_HERBS':
-      return Object.assign({}, state, { herbs: action.herbs }, { loading: false })
+      return Object.assign({}, state, { herbs: action.herbs }, { loading: false }, { muId: action.muId } )
 
     default:
       return state;

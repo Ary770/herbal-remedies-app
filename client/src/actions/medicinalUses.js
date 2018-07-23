@@ -22,7 +22,7 @@ export function fetchMedicinalUseHerbs(muId) {
         if (herbs.error) {
           return dispatch({ type: 'ERROR', error: herbs.error })
         } else {
-          return dispatch({ type: 'FETCH_MU_HERBS', herbs })
+          return dispatch({ type: 'FETCH_MU_HERBS', herbs, muId })
         }
       });
   };

@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 // import Herbs from '../components/Herbs';
 // import HerbShow from './HerbShow';
 import MedicinalUsesList from '../components/MedicinalUsesList';
-// import MedicinalUseShow from './MedicinalUseShow';
+import HerbShow from './HerbShow';
 // import Alert from '../components/Alert'
-// import { Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions/medicinalUses';
 
@@ -23,13 +23,19 @@ class MedicinalUsesPage extends React.Component {
   //     this.props.history.replace('/medicinal-uses')
   //   }
   // }
+  
+  fetchHerbsHandler = (event, muId) => {
+    event.preventDefault();
+    this.props.history.replace('/medicinal_uses')
+    this.props.actions.fetchMedicinalUseHerbs(muId)
+  }
 
   render() {
     const target = this.props.target;
     let medicinalUses = null;
 
     if (target) {
-      medicinalUses = <MedicinalUsesList url={this.props.match.url} medicinalUses={target}/>
+      medicinalUses = <MedicinalUsesList fetchHerbsHandler={this.fetchHerbsHandler} url={this.props.match.url} medicinalUses={target}/>
     }
 
     return (
@@ -44,6 +50,7 @@ class MedicinalUsesPage extends React.Component {
             />
           <br></br>
           {medicinalUses}
+          <Route path={`${this.props.match.url}/herbs/:herbId`} component={HerbShow}></Route>
         </div>
       </div>
     )

@@ -22,7 +22,6 @@ const Herbs = (props) => {
              :
             <span className='span-likes'> {herb.likes}</span>
           }
-
         </li>
       </h4>
     );

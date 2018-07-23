@@ -10,6 +10,10 @@ class HerbShow extends React.Component {
     if (this.props.herb === nextProps.herb) {
       updatePath(this.props);
     }
+
+    // if (this.props.match.path === "/medicinal_uses/herbs/:herbId") {
+    //   this.props.history.replace('/medicinal_uses')
+    // }
   }
 
   hidePanel = () => {
