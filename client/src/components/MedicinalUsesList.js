@@ -1,15 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link, Route } from 'react-router-dom';
 import MedicinalUseShow from '../containers/MedicinalUseShow';
 import Aux from '../HOC/Aux'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions/medicinalUses';
+// import Alert from './Alert'
 
 class MedicinalUsesList extends React.Component {
-  // state = {
-  //   displayHerbs: false
-  // }
+  state = {
+    muId: ''
+  }
 
   // displayHerbsHandler = (medicinalUse) => {
   //   //set state.herbs = to medicinalUse.herbs
@@ -19,14 +20,15 @@ class MedicinalUsesList extends React.Component {
   //   })
   // }
 
-  fetchHerbsHandler = (muId) => {
+  fetchHerbsHandler = (event, muId) => {
+    event.preventDefault();
     //fetch giving errors, consider searching herbs in reducer that include medicinaluse
     this.props.actions.fetchMedicinalUseHerbs(muId)
+    this.setState({muId: muId})
   }
 
   render() {
     let medicinalUses = null;
-    let displayHerbs = null;
 
     if (this.props.medicinalUses) {
       medicinalUses = this.props.medicinalUses.map(medicinalUse => {
@@ -34,14 +36,18 @@ class MedicinalUsesList extends React.Component {
           <Aux key={medicinalUse.id}>
             <h4 >
               <li role='presentation'>
-                <Link onClick={() => this.fetchHerbsHandler(medicinalUse.id)} to={`${this.props.url}/${medicinalUse.id}`}>{medicinalUse.name}</Link>
+                <a href='/' onClick={(event) => this.fetchHerbsHandler(event, medicinalUse.id)}>
+                  {medicinalUse.name}
+                </a>
                 <span>  </span>
               </li>
             </h4>
+            { this.state.muId === medicinalUse.id ? <MedicinalUseShow /> : null}
           </Aux>
         )
       });
     }
+
     // { this.state.showHerbs ? <MedicinalUseShow herbs={this.state.mU.herbs}/> : null}
     // { this.state.muId === medicinalUse.id ? <MedicinalUseShow herbs={medicinalUse.herbs}/> : null}
     return (
@@ -54,36 +60,8 @@ class MedicinalUsesList extends React.Component {
   }
 }
 
-// const MedicinalUsesList = (props) => {
-//   let medicinalUses = null;
-//   let displayHerbs = null;
-//
-//   const displayHerbsHandler = (medicinalUse) => {
-//     displayHerbs =
-//   }
-//
-//   if (props.medicinalUses) {
-//     medicinalUses = props.medicinalUses.map(medicinalUse =>
-//       <h4 key={medicinalUse.id}>
-//         <li role='presentation'>
-//           <Link onClick={displayHerbsHandler(medicinalUse)} to={`${props.url}/${medicinalUse.id}`}>{medicinalUse.name}</Link>
-//           <span>  </span>
-//         </li>
-//       </h4>
-//     );
-//   }
-//
-//   return (
-//     <div className="col-sm-5">
-//       <ul className="nav nav-pills nav-stacked">
-//         { medicinalUses }
-//       </ul>
-//     </div>
-//   )
-// };
 const mapDispatchToProps = (dispatch) => {
   return {actions: bindActionCreators(actions, dispatch)}
 }
-
 
 export default connect(null, mapDispatchToProps)(MedicinalUsesList);

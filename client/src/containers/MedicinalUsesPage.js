@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 // import Herbs from '../components/Herbs';
 // import HerbShow from './HerbShow';
 import MedicinalUsesList from '../components/MedicinalUsesList';
-import MedicinalUseShow from './MedicinalUseShow';
-import Alert from '../components/Alert'
-import { Route } from 'react-router-dom';
+// import MedicinalUseShow from './MedicinalUseShow';
+// import Alert from '../components/Alert'
+// import { Route } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions/medicinalUses';
 
@@ -25,7 +25,7 @@ class MedicinalUsesPage extends React.Component {
   // }
 
   render() {
-    const { target, match } = this.props;
+    const target = this.props.target;
     let medicinalUses = null;
 
     if (target) {
@@ -44,8 +44,6 @@ class MedicinalUsesPage extends React.Component {
             />
           <br></br>
           {medicinalUses}
-          { this.props.error ? <Alert error={this.props.error}/> :
-            <Route path={`${match.url}/:medicinalUseId`} component={MedicinalUseShow}/> }
         </div>
       </div>
     )

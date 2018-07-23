@@ -5,7 +5,6 @@ const Herbs = (props) => {
   let herbs = null;
 
   if (props.herbs) {
-    debugger
     herbs = props.herbs.map(herb =>
       <h4 key={herb.id}>
         <li role='presentation'>
