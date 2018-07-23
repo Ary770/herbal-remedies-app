@@ -40,7 +40,7 @@ body {
     border: none;
     outline: none;
     /* color: #AED64B; */
-    color: #2A632E;
+    color: #008500;
     text-decoration: none;
     -webkit-transition: 0.3s ease;
     transition: 0.3s ease;
@@ -65,6 +65,11 @@ body {
 	animation-iteration-count: 1;
 	animation-fill-mode: forwards;
 	animation-duration: 0.65s;
+}
+
+.li-16px-style {
+  font-size: 16px;
+  color: #008500;
 }
 
 @keyframes likeAnimation {

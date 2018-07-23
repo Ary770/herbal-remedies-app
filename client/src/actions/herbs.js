@@ -21,7 +21,6 @@ export function postLike(herbId) {
       headers: {
         accept: 'application/json'
       },
-      body: JSON.stringify(herbId)
       })
       .then(res => res.json())
       .then(herb => dispatch({ type: 'UPDATE_LIKE' , herb } ))
@@ -63,16 +62,16 @@ export const searchHerb = input => {
   }
 };
 
-export const medicinalUse = input => {
-  return {
-    type: 'MEDICINAL_USE',
-    input
-  }
-};
-
-export const properties = input => {
-  return {
-    type: 'PROPERTIES',
-    input
-  }
-};
+// export const medicinalUse = input => {
+//   return {
+//     type: 'MEDICINAL_USE',
+//     input
+//   }
+// };
+//
+// export const properties = input => {
+//   return {
+//     type: 'PROPERTIES',
+//     input
+//   }
+// };

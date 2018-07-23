@@ -10,7 +10,6 @@ const Herbs = (props) => {
         <li role='presentation'>
           <Link to={`${props.url}/${herb.id}`}>{herb.name}</Link>
           <span>  </span>
-
           { props.url === '/herbs' ?
             <button
               className='btn-like'
@@ -23,7 +22,6 @@ const Herbs = (props) => {
              :
             <span className='span-likes'> {herb.likes}</span>
           }
-
         </li>
       </h4>
     );

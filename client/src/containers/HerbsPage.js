@@ -50,8 +50,13 @@ class HerbsPage extends React.Component {
               className="form-control"
               placeholder="Search by Medicinal Uses, Herbal Properties or Herb Name..."
             />
-          <span className="input-group-btn">
-              <button onClick={this.resetHerbs} className="btn btn-default" type="button">Reset Filter</button>
+            <span className="input-group-btn">
+                <button
+                  onClick={this.resetHerbs}
+                  className="btn btn-default"
+                  type="button">
+                    Reset Filter
+                </button>
             </span>
           </div>
 
