@@ -35,7 +35,7 @@ class MedicinalUsesPage extends React.Component {
     return (
       <div className="row">
         <div className="col-lg-6">
-          <h3>Search by Medicinal Uses</h3>
+          <h3>Search by Medicinal Use</h3>
           <input
             type="text"
             className="form-control"

@@ -1,11 +1,11 @@
 import React from 'react';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 const MedicinalUseShow = (props) => {
   let displayHerbs = null;
 
-  if (props.herbs.length !== 0 ) {
+  if (props.herbs) {
     //when user clicks on link, route defined on MedicinalUsesPage renders HerbShow component.
     displayHerbs = props.herbs.map(herb =>
       <li key={herb.id}>
@@ -21,10 +21,10 @@ const MedicinalUseShow = (props) => {
   )
 }
 
-const mapStateToProps = (state, ownProps) => {
-  return({
-    herbs: state.medicinalUses.herbs
-  })
-}
+// const mapStateToProps = (state) => {
+//   return({
+//     herbs: state.medicinalUses.herbs
+//   })
+// }
 
-export default connect(mapStateToProps)(MedicinalUseShow);
+export default MedicinalUseShow;
