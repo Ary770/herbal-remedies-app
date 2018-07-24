@@ -35,7 +35,7 @@ class PropertiesPage extends React.Component {
     return (
       <div className="row">
         <div className="col-lg-6">
-          <h3>Search by Herbal Property</h3>
+          <h3>Search by Property</h3>
           <input
             type="text"
             className="form-control"

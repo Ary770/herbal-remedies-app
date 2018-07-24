@@ -18,6 +18,8 @@ export const updatePath = (props) => {
       return props.history.replace('/favorite_herbs')
     case '/medicinal_uses/herbs/:herbId':
       return props.history.replace('/medicinal_uses')
+    case '/properties/herbs/:herbId':
+      return props.history.replace('/properties')
     default:
       return null
   }
