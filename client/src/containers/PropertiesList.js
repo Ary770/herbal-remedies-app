@@ -2,8 +2,6 @@ import React from 'react';
 import MedicinalUseShow from '../containers/MedicinalUseShow';
 import Aux from '../HOC/Aux'
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import * as actions from '../actions/properties';
 // import Alert from './Alert'
 
 const PropertiesList = (props) => {
