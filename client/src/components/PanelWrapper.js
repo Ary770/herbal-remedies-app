@@ -15,7 +15,7 @@ const PanelWrapper = ({herb, hidePanel}) => {
 
   if (herb.properties !== "") {
     properties = <Aux>
-                        <h3>Medicinal Uses</h3>
+                        <h3>Properties</h3>
                         <p>{herb.properties}</p>
                      </Aux>
   }
