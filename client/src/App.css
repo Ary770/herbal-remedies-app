@@ -40,7 +40,7 @@ body {
     border: none;
     outline: none;
     /* color: #AED64B; */
-    color: #008500;
+    color: #059400;
     text-decoration: none;
     -webkit-transition: 0.3s ease;
     transition: 0.3s ease;
@@ -69,7 +69,7 @@ body {
 
 .li-16px-style {
   font-size: 16px;
-  color: #008500;
+  color: #059400;
 }
 
 @keyframes likeAnimation {
