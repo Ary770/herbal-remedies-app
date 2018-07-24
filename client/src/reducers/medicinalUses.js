@@ -10,7 +10,6 @@ export default (state = { medicinalUses: [], target: [], loading: false, herbs: 
         target: action.medicinalUses,
         loading: false
       });
-
       return new_state
 
     case 'LOADING_MU_HERBS':
@@ -18,6 +17,15 @@ export default (state = { medicinalUses: [], target: [], loading: false, herbs: 
 
     case 'FETCH_MU_HERBS':
       return Object.assign({}, state, { herbs: action.herbs }, { loading: false }, { muId: action.muId } )
+
+    case 'SEARCH_MEDICINAL_USE':
+      const formattedInput = action.mu.toLocaleLowerCase();
+
+      const matchingHerbs = state.medicinalUses.filter(mu =>
+        mu.name.toLocaleLowerCase().includes(formattedInput.trim())
+      );
+      return Object.assign({}, state, { target: matchingHerbs })
+
 
     default:
       return state;

@@ -61,17 +61,3 @@ export const searchHerb = input => {
     input
   }
 };
-
-// export const medicinalUse = input => {
-//   return {
-//     type: 'MEDICINAL_USE',
-//     input
-//   }
-// };
-//
-// export const properties = input => {
-//   return {
-//     type: 'PROPERTIES',
-//     input
-//   }
-// };

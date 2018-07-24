@@ -15,15 +15,11 @@ class MedicinalUsesPage extends React.Component {
     this.props.actions.fetchMedicinalUses();
   }
 
-  // handleSearch = (event) => {
-  //   const input = event.target.value
-  //   this.props.actions.medicinalUse(input)
-  //
-  //   if (input === "") {
-  //     this.props.history.replace('/medicinal-uses')
-  //   }
-  // }
-  
+  handleSearch = (event) => {
+    const muInput = event.target.value
+    this.props.actions.searchMedicinalUse(muInput)
+  }
+
   fetchHerbsHandler = (event, muId) => {
     event.preventDefault();
     this.props.history.replace('/medicinal_uses')

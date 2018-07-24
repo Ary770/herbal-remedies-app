@@ -27,3 +27,10 @@ export function fetchMedicinalUseHerbs(muId) {
       });
   };
 };
+
+export function searchMedicinalUse(mu) {
+  return ({
+    type: 'SEARCH_MEDICINAL_USE',
+    mu
+  })
+}

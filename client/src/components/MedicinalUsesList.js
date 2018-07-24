@@ -22,7 +22,7 @@ const MedicinalUsesList = (props) => {
               <span>  </span>
             </li>
           </h4>
-          { props.muId === medicinalUse.id ? <MedicinalUseShow url={props.url}/> : null}
+          { props.muId === medicinalUse.id ? <MedicinalUseShow url={props.url}/> : null }
         </Aux>
       )
     });

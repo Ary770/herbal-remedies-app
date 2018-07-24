@@ -40,7 +40,7 @@ body {
     border: none;
     outline: none;
     /* color: #AED64B; */
-    color: #059400;
+    color: #047800;
     text-decoration: none;
     -webkit-transition: 0.3s ease;
     transition: 0.3s ease;
@@ -49,7 +49,7 @@ body {
 .span-likes {
   display: inline;
   font-size: 14px;
-  color: #2A632E;
+  color: #047800;
 }
 
 .btn-like:hover {
@@ -69,7 +69,7 @@ body {
 
 .li-16px-style {
   font-size: 16px;
-  color: #059400;
+  color: #047800;
 }
 
 @keyframes likeAnimation {
