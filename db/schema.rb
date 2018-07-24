@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180718014902) do
+ActiveRecord::Schema.define(version: 20180724174305) do
 
   create_table "herbs", force: :cascade do |t|
     t.string "name"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20180718014902) do
     t.integer "medicinal_use_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["medicinal_use_id", "herb_id"], name: "by_medicinal_use_and_herb", unique: true
   end
 
   create_table "herbs_properties", force: :cascade do |t|
@@ -33,6 +34,7 @@ ActiveRecord::Schema.define(version: 20180718014902) do
     t.integer "property_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["property_id", "herb_id"], name: "by_property_and_herb", unique: true
   end
 
   create_table "medicinal_uses", force: :cascade do |t|
