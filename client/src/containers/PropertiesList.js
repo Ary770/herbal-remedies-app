@@ -1,5 +1,5 @@
 import React from 'react';
-import MedicinalUseShow from '../containers/MedicinalUseShow';
+import NestedHerbsShow from '../components/NestedHerbsShow';
 import Aux from '../HOC/Aux'
 import { connect } from 'react-redux';
 // import Alert from './Alert'
@@ -20,7 +20,7 @@ const PropertiesList = (props) => {
             </li>
           </h4>
             { props.propId === property.id ?
-              <MedicinalUseShow herbs={property.herbs} url={props.url}/>
+              <NestedHerbsShow herbs={property.herbs} url={props.url}/>
               :
               null
             }

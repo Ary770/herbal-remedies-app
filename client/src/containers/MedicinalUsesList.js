@@ -1,5 +1,5 @@
 import React from 'react';
-import MedicinalUseShow from '../containers/MedicinalUseShow';
+import NestedHerbsShow from '../components/NestedHerbsShow';
 import Aux from '../HOC/Aux'
 import { connect } from 'react-redux';
 // import Alert from './Alert'
@@ -19,7 +19,7 @@ const MedicinalUsesList = (props) => {
               <span>  </span>
             </li>
           </h4>
-          { props.muId === mu.id ? <MedicinalUseShow herbs={mu.herbs} url={props.url}/> : null }
+          { props.muId === mu.id ? <NestedHerbsShow herbs={mu.herbs} url={props.url}/> : null }
         </Aux>
       )
     });
