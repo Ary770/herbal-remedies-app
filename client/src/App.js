@@ -3,7 +3,7 @@ import HerbsPage from './containers/HerbsPage';
 import Navbar from './components/Navbar';
 import { BrowserRouter as Router,Route } from 'react-router-dom';
 import MedicinalUsesPage from './containers/MedicinalUsesPage';
-import Properties from './containers/Properties';
+import PropertiesPage from './containers/PropertiesPage';
 import FavoriteHerbs from './containers/FavoriteHerbs';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -28,7 +28,7 @@ class App extends Component {
             <Route path="/herbs" component={HerbsPage}/>
             <Route path="/favorite_herbs" component={FavoriteHerbs} />
             <Route path="/medicinal_uses" component={MedicinalUsesPage}/>
-            <Route path="/properties" component={Properties}/>
+            <Route path="/properties" component={PropertiesPage}/>
           </Aux>
         </Router>
       </div>

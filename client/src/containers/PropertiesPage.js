@@ -10,26 +10,7 @@ class Properties extends React.Component {
   }
 
   handleSearch = (event) => {
-    const text = event.target.value
-
-    if (text !== "") {
-      const property = text.split(' ').map(
-        w => w.charAt(0).toUpperCase() + w.substr(1)
-      ).join(' ');
-
-      const matchingHerbs = this.props.herbs.filter(herb =>
-        herb.properties && herb.properties.includes(property.trim())
-      );
-
-      if (matchingHerbs) {
-        this.setState({
-          showHerbs: matchingHerbs
-        })
-      }
-    } else {
-      this.setState({ showHerbs: null });
-      this.props.history.replace('/properties')
-    }
+    console.log(event)
   }
 
   render() {

@@ -1,6 +1,8 @@
 class MedicinalUseSerializer < ActiveModel::Serializer
   attributes :id, :name
-  has_many :herbs, serializer: HerbMedicinalUseSerializer
+
+  # To see all nested herbs under each medicinalUse.
+  # has_many :herbs, serializer: HerbMedicinalUseSerializer
 
   # def herbs
   #   self.object.herbs.map {|h| h.name }

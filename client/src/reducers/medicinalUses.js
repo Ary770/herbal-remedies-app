@@ -21,11 +21,10 @@ export default (state = { medicinalUses: [], target: [], loading: false, herbs: 
     case 'SEARCH_MEDICINAL_USE':
       const formattedInput = action.mu.toLocaleLowerCase();
 
-      const matchingHerbs = state.medicinalUses.filter(mu =>
+      const matchingMU = state.medicinalUses.filter(mu =>
         mu.name.toLocaleLowerCase().includes(formattedInput.trim())
       );
-      return Object.assign({}, state, { target: matchingHerbs })
-
+      return Object.assign({}, state, { target: matchingMU })
 
     default:
       return state;

@@ -1,7 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// import Herbs from '../components/Herbs';
-// import HerbShow from './HerbShow';
 import MedicinalUsesList from '../components/MedicinalUsesList';
 import HerbShow from './HerbShow';
 // import Alert from '../components/Alert'
