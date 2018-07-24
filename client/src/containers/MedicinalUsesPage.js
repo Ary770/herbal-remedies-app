@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import MedicinalUsesList from '../components/MedicinalUsesList';
+import MedicinalUsesList from './MedicinalUsesList';
 import HerbShow from './HerbShow';
 // import Alert from '../components/Alert'
 import { Route } from 'react-router-dom';
