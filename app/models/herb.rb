@@ -22,14 +22,6 @@ class Herb < ApplicationRecord
     end
   end
 
-  def self.search_by_medicinal_use(condition)
-    self.all.select { |herb| herb.medicinal_uses && herb.medicinal_uses.downcase.include?(condition.downcase)}
-  end
-
-  def self.search_by_properties(property)
-    self.all.select { |herb| herb.properties && herb.properties.downcase.include?(property.downcase)}
-  end
-
   def add_herb_attributes(herb_attributes_hash)
     herb_attributes_hash.each do |key, value|
       if key === :medicinal_uses
