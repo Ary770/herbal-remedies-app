@@ -1,7 +1,7 @@
 {
   "name": "herbal-remedies",
   "engines": {
-    "node": "6.3.1"
+    "node": "8.11.3"
   },
   "scripts": {
     "build": "cd client && npm install && npm run build && cd ..",
