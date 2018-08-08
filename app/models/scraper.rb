@@ -2,21 +2,6 @@ require 'nokogiri'
 require 'open-uri'
 
 class Scraper < ApplicationRecord
-  @@doc_2 = Nokogiri::HTML(open("https://draxe.com/herbal-medicine/"))
-
-  def self.herbal_medicine
-    @@doc_2.css('p')[4..7]
-  end
-
-  def self.benefits_of_h_m
-    @@doc_2.css('p')[8..15]
-  end
-
-  def self.bonus
-    doc = Nokogiri::HTML(open("https://www.meaningfullife.com/body-and-soul/"))
-    doc.css("p")[7..8]
-  end
-
   def self.herb_names_and_path_hash
     doc = Nokogiri::HTML(open("https://www.anniesremedy.com/chart.php"))
     hash = {}

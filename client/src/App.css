@@ -60,6 +60,11 @@ body {
 	 margin-right: 5px;
 }
 
+.li-16px-style {
+  font-size: 16px;
+  color: #047800;
+}
+
 .animate-like {
 	animation-name: likeAnimation;
 	animation-iteration-count: 1;
@@ -67,14 +72,13 @@ body {
 	animation-duration: 0.65s;
 }
 
-.li-16px-style {
-  font-size: 16px;
-  color: #047800;
-}
-
 @keyframes likeAnimation {
-  0%   { transform: scale(30); }
-  100% { transform: scale(1); }
+  50% { transform: scale3d(.8, .8, .8); }
+  80% {
+    transform: scale3d(2.7, 2.7, 2.7);
+    opacity: 1;
+  }
+  100% { opacity: 1; }
 }
 
 #nav-p-padding {
@@ -88,9 +92,4 @@ body {
 
 #logo-align {
   padding-top: 2px;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
 }

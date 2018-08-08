@@ -9,6 +9,11 @@ import * as actions from '../actions/herbs';
 
 class HerbsPage extends React.Component {
 
+  state = {
+    likeAnimation: false,
+    herbClicked: ''
+  }
+
   handleSearch = (event) => {
     const input = event.target.value;
     this.props.actions.searchHerb(input);
@@ -20,10 +25,10 @@ class HerbsPage extends React.Component {
 
   likesHandler = (event) => {
     const herbId = event.target.dataset.id;
-
     if (this.props.liked.includes(herbId)) {
       return null
     } else {
+      event.target.classList.add('animate-like')
       this.props.actions.likeHerb(herbId);
       this.props.history.replace('/herbs');
       this.props.actions.postLike(herbId);
@@ -61,7 +66,14 @@ class HerbsPage extends React.Component {
           </div>
 
           <br/>
-          { herbs.length === 0 ? null : <Herbs likesHandler={this.likesHandler} url={match.url } herbs={herbs}/> }
+          { herbs.length === 0 ?
+            null :
+            <Herbs
+              likesHandler={this.likesHandler}
+              url={match.url }
+              herbs={herbs}
+              />
+          }
           { this.props.error ? <Alert error={this.props.error}/> :
             <Route path={`${match.url}/:herbId`} component={HerbShow}/> }
         </div>
