@@ -1,6 +1,6 @@
 class HerbsController < ApplicationController
   def index
-    herbs = Herb.all
+    herbs = Herb.all.order('name')
     render json: herbs, status: 201
   end
 
