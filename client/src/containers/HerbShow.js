@@ -6,15 +6,10 @@ import { updatePath } from '../utilities/functions'
 
 class HerbShow extends React.Component {
 
-  componentWillReceiveProps(nextProps) {
-    if (this.props.herb === nextProps.herb) {
-      updatePath(this.props);
-    }
-
-    // if (this.props.match.path === "/medicinal_uses/herbs/:herbId") {
-    //   this.props.history.replace('/medicinal_uses')
-    // }
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   if (this.props.herb === nextProps.herb) {
+  //     updatePath(this.props);
+  //   }
 
   hidePanel = () => {
     updatePath(this.props);
