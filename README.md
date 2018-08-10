@@ -8,10 +8,7 @@ You can also see a list of the Top 65 Most Commonly Used Herbs and dynamically l
 
 To get it running locally, clone the repository. Run bundle install, rake db:migrate, rake db:seed and finally rake start to launch the application.
 
-Video of running app:
-https://youtu.be/PhWtlQBgDC0
-
-Blog Post:
-http://ary770.com/search_component_with_react
+Demo:
+https://herbal-remedies.herokuapp.com
 
 This project has been licensed under the MIT open source license.
