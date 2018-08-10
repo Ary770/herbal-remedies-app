@@ -23,7 +23,7 @@ const NavBar = () => {
         <li className="li-align" role="presentation">
           <NavLink className="nav-font-style" to="/favorite_herbs">Favorite Herbs</NavLink>
         </li>
-        <p id="nav-p-padding" className="navbar-text navbar-right"><a id='nav-link-gray' href="https://www.anniesremedy.com" className="navbar-link">Data From: anniesremedy.com</a></p>
+        <p id="nav-p-padding" className="navbar-text navbar-right"><a id='nav-link-gray' href="https://www.anniesremedy.com" className="navbar-link">anniesremedy.com</a></p>
       </ul>
     </nav>
   )

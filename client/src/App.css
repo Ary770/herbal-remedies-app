@@ -75,7 +75,7 @@ body {
 @keyframes likeAnimation {
   50% { transform: scale3d(.8, .8, .8); }
   80% {
-    transform: scale3d(2, 2, 2);
+    transform: scale3d(1.8, 1.8, 1.8);
     opacity: 1;
   }
   100% { opacity: 1; color: #047800;}

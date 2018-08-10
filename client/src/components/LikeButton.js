@@ -24,7 +24,6 @@ const LikeButton = ({herbId, likes, likedHerbs, likesHandler}) => {
                   </button>
   }
 
-
   return (
     <Aux>
       {buttonStyle}
