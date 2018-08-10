@@ -49,7 +49,7 @@ body {
 .span-likes {
   display: inline;
   font-size: 14px;
-  color: #047800;
+  color: gray;
 }
 
 .btn-like:hover {
