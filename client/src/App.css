@@ -40,7 +40,7 @@ body {
     border: none;
     outline: none;
     /* color: #AED64B; */
-    color: #047800;
+    color: gray;
     text-decoration: none;
     -webkit-transition: 0.3s ease;
     transition: 0.3s ease;
@@ -75,10 +75,10 @@ body {
 @keyframes likeAnimation {
   50% { transform: scale3d(.8, .8, .8); }
   80% {
-    transform: scale3d(2.2, 2.2, 2.2);
+    transform: scale3d(2, 2, 2);
     opacity: 1;
   }
-  100% { opacity: 1; }
+  100% { opacity: 1; color: #047800;}
 }
 
 #nav-p-padding {
