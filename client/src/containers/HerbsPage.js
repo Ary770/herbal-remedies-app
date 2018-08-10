@@ -28,7 +28,6 @@ class HerbsPage extends React.Component {
     if (this.props.liked.includes(herbId)) {
       return null
     } else {
-      event.target.classList.add('animate-like')
       this.props.actions.likeHerb(herbId);
       this.props.history.replace('/herbs');
       this.props.actions.postLike(herbId);
@@ -72,6 +71,7 @@ class HerbsPage extends React.Component {
               likesHandler={this.likesHandler}
               url={match.url }
               herbs={herbs}
+              likedHerbs={this.props.liked}
               />
           }
           { this.props.error ? <Alert error={this.props.error}/> :

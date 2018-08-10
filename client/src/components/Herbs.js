@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import LikeButton from './LikeButton'
 
 const Herbs = (props) => {
-  let herbs = null;
+  let herbs;
 
   if (props.herbs) {
     herbs = props.herbs.map(herb =>
@@ -11,15 +12,12 @@ const Herbs = (props) => {
           <Link to={`${props.url}/${herb.id}`}>{herb.name}</Link>
           <span>  </span>
           { props.url === '/herbs' ?
-            <button
-              className='btn-like'
-              type='button'
-              data-id={herb.id}
-              onClick={ event => props.likesHandler(event) }
-              >
-              <span data-id={herb.id} className="glyphicon glyphicon-thumbs-up"></span> {herb.likes}
-            </button>
-             :
+            <LikeButton
+              herbId={herb.id}
+              likes={herb.likes}
+              likedHerbs={props.likedHerbs}
+              likesHandler={props.likesHandler}/>
+            :
             <span className='span-likes'> {herb.likes}</span>
           }
         </li>
