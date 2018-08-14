@@ -6,15 +6,14 @@ const Welcome = () =>
 <Jumbotron>
   <h1>Welcome To Herbal Remedies</h1>
 
-    <blockquote className="blockquote">
-      <p className="mb-0">
-        "No Illness which can be treated by diet should be treated by any other means."
-      </p>
-      <footer className="blockquote-footer">Maimonides</footer>
-    </blockquote>
-  <p>
-    <NavLink to='/herbs'>Top 65 Most Commonly Used Herbs</NavLink>
-  </p>
+    <p>Quickly find the natural remedies that are best for you! Search for ailments, herbal properties or herbs that you enjoy.</p>
+
+    <p>Start by clicking on the button below and use the smart search to discover your herbs.</p>
+
+    <p>
+      <NavLink to='/herbs' type='button' className='btn btn-success btn-lg'>Get Started!</NavLink>
+    </p>
+
 </Jumbotron>
 
 export default Welcome

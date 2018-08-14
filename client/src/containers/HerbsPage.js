@@ -8,7 +8,6 @@ import { bindActionCreators } from 'redux';
 import * as actions from '../actions/herbs';
 
 class HerbsPage extends React.Component {
-
   state = {
     likeAnimation: false,
     herbClicked: ''
