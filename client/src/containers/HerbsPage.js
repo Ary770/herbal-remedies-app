@@ -6,6 +6,7 @@ import HerbShow from './HerbShow';
 import Alert from '../components/Alert'
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions/herbs';
+import ReactLoading from 'react-loading';
 
 class HerbsPage extends React.Component {
   state = {
@@ -65,7 +66,8 @@ class HerbsPage extends React.Component {
 
           <br/>
           { herbs.length === 0 ?
-            null :
+            <ReactLoading type='spin' color='#047800'/> 
+            :
             <Herbs
               likesHandler={this.likesHandler}
               url={match.url }

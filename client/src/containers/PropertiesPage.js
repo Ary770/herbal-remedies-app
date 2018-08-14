@@ -6,6 +6,7 @@ import HerbShow from './HerbShow';
 import { Route } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions/properties';
+import ReactLoading from 'react-loading';
 
 class PropertiesPage extends React.Component {
 
@@ -26,11 +27,6 @@ class PropertiesPage extends React.Component {
 
   render() {
     const target = this.props.target;
-    let properties = null;
-
-    if (target) {
-      properties = <PropertiesList fetchHerbsHandler={this.fetchHerbsHandler} url={this.props.match.url} properties={target}/>
-    }
 
     return (
       <div className="row">
@@ -43,7 +39,14 @@ class PropertiesPage extends React.Component {
             placeholder="Search for..."
             />
           <br></br>
-          {properties}
+          { target.length !== 0 ?
+            <PropertiesList
+              fetchHerbsHandler={this.fetchHerbsHandler}
+              url={this.props.match.url}
+              properties={target}/>
+            :
+            <ReactLoading type='spin' color='#047800'/>
+          }
           <Route path={`${this.props.match.url}/herbs/:herbId`} component={HerbShow}></Route>
         </div>
       </div>

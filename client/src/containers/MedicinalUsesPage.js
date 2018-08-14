@@ -6,6 +6,7 @@ import HerbShow from './HerbShow';
 import { Route } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions/medicinalUses';
+import ReactLoading from 'react-loading';
 
 class MedicinalUsesPage extends React.Component {
 
@@ -26,12 +27,7 @@ class MedicinalUsesPage extends React.Component {
 
   render() {
     const target = this.props.target;
-    let medicinalUses = null;
-
-    if (target) {
-      medicinalUses = <MedicinalUsesList fetchHerbsHandler={this.fetchHerbsHandler} url={this.props.match.url} medicinalUses={target}/>
-    }
-
+    
     return (
       <div className="row">
         <div className="col-lg-6">
@@ -43,7 +39,16 @@ class MedicinalUsesPage extends React.Component {
             placeholder="Search for..."
             />
           <br></br>
-          {medicinalUses}
+
+          { target.length !== 0 ?
+            <MedicinalUsesList
+              fetchHerbsHandler={this.fetchHerbsHandler}
+              url={this.props.match.url}
+              medicinalUses={target}/>
+            :
+            <ReactLoading type='spin' color='#047800'/>
+          }
+
           <Route path={`${this.props.match.url}/herbs/:herbId`} component={HerbShow}></Route>
         </div>
       </div>
