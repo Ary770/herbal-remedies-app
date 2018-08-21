@@ -8,7 +8,7 @@ class HerbSerializer < ActiveModel::Serializer
   end
 
   def properties
-    self.object.properties.map{|p| p.name}.join(', ') 
+    self.object.properties.map{|p| p.name}.join(', ')
   end
 
 end
