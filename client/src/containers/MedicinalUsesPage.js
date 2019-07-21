@@ -27,7 +27,7 @@ class MedicinalUsesPage extends React.Component {
 
   render() {
     const target = this.props.target;
-    
+
     return (
       <div className="row">
         <div className="col-lg-6">
@@ -46,7 +46,10 @@ class MedicinalUsesPage extends React.Component {
               url={this.props.match.url}
               medicinalUses={target}/>
             :
-            <ReactLoading type='spin' color='#047800'/>
+            <div>
+              <ReactLoading type='bubbles' color='#047800'/>
+              <p className='text-muted flicker-animation'>Preparing Hebal Remedies...</p>
+            </div>
           }
 
           <Route path={`${this.props.match.url}/herbs/:herbId`} component={HerbShow}></Route>

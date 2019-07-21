@@ -66,7 +66,10 @@ class HerbsPage extends React.Component {
 
           <br/>
           { herbs.length === 0 ?
-            <ReactLoading type='spin' color='#047800'/> 
+            <div>
+              <ReactLoading type='bubbles' color='#047800'/>
+              <p className='text-muted flicker-animation'>Preparing Herbal Remedies...</p>
+            </div>
             :
             <Herbs
               likesHandler={this.likesHandler}
@@ -75,8 +78,11 @@ class HerbsPage extends React.Component {
               likedHerbs={this.props.liked}
               />
           }
-          { this.props.error ? <Alert error={this.props.error}/> :
-            <Route path={`${match.url}/:herbId`} component={HerbShow}/> }
+          { this.props.error ?
+            <Alert error={this.props.error}/>
+            :
+            <Route path={`${match.url}/:herbId`} component={HerbShow}/>
+          }
         </div>
       </div>
     )

@@ -72,6 +72,37 @@ body {
 	animation-duration: 0.65s;
 }
 
+.fade-in-out {
+  /* color: #047800 */
+}
+.flicker-animation {
+   -webkit-animation: flickerAnimation 2.5s infinite;
+   -moz-animation: flickerAnimation 2.5s infinite;
+   -o-animation: flickerAnimation 2.5s infinite;
+    animation: flickerAnimation 2.5s infinite;
+}
+
+@keyframes flickerAnimation {
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+@-o-keyframes flickerAnimation{
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+@-moz-keyframes flickerAnimation{
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+@-webkit-keyframes flickerAnimation{
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+
 @keyframes likeAnimation {
   50% { transform: scale3d(.8, .8, .8); }
   80% {

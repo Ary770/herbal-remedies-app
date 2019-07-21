@@ -45,7 +45,10 @@ class PropertiesPage extends React.Component {
               url={this.props.match.url}
               properties={target}/>
             :
-            <ReactLoading type='spin' color='#047800'/>
+            <div>
+              <ReactLoading type='bubbles' color='#047800'/>
+              <p className='text-muted flicker-animation'>Preparing Herbal Remedies...</p>
+            </div>
           }
           <Route path={`${this.props.match.url}/herbs/:herbId`} component={HerbShow}></Route>
         </div>
